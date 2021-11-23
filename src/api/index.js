@@ -28,7 +28,7 @@ export default {
       .sort((a, b) => b.publicScore - a.publicScore)
       .slice(start, size);
   },
-  getGameData(size, start = 0) {
+  getGameData(size = null, start = 0) {
     return gameData.data.slice(start, size);
   },
   getGameDateById(id) {

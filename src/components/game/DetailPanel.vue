@@ -8,15 +8,24 @@
       :column="1"
       direction="horizontal"
     >
+    <el-descriptions-item
+        :span="2"
+        label="发行日期:"
+        label-class-name="font-bold text-gray-200"
+        class-name="text-primary-gray underline">
+          {{data.date}}
+      </el-descriptions-item >
       <el-descriptions-item
         label="出版商:"
+        :span="2"
         label-class-name="font-bold text-gray-200"
         class-name="text-primary-gray underline">
           {{data.deployer}}
       </el-descriptions-item >
       <el-descriptions-item
         label="发行商:"
-        label-class-name="font-bold text-gray-200 e"
+        :span="2"
+        label-class-name="font-bold text-gray-200"
         class-name="text-primary-gray underline">
         {{data.publisher}}
       </el-descriptions-item>

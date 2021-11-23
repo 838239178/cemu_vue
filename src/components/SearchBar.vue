@@ -119,9 +119,9 @@ export default {
           return;
         }
         let keyw = this.keywordStack.pop();
+        this.keywordStack = []
         unlock();
         this.doSearch(keyw);
-        this.keywordStack = []
       }, this.throttle);
     },
     clickSearch(s) {

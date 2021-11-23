@@ -2,19 +2,19 @@
   <div class="px-2">
     <el-row align="middle" justify="space-around">
       <el-col :span="2" :offset="0" class="text-2xl font-bold primary-gray-color">
-        {{ index }}.
+        {{ index + 1 }}.
       </el-col>
       <el-col :span="6" :offset="0">
         <el-image
           class="w-20 h-20 rounded-sm"
           style="box-shadow: 5px 5px 10px #bbb;"
-          :src="imgSrc"
+          :src="icon"
           fit="fill"
           :lazy="true"
         ></el-image>
       </el-col>
       <el-col :span="11" class="space-y-4 px-2">
-        <div class="text-left text-lg font-extrabold hidden-wrap">{{ title }}</div>
+        <div class="text-left text-lg font-extrabold hidden-wrap">{{ name }}</div>
         <div class="flex justify-between items-center">
           <div
             class="
@@ -58,7 +58,7 @@
 export default {
   emits: ['click-btn'],
   props: {
-    title: {
+    name: {
       default: () => "上古卷轴5：天际",
     },
     index: {
@@ -70,7 +70,7 @@ export default {
     score: {
       default: () => 8.5,
     },
-    imgSrc: {
+    icon: {
       default: () =>
         "https://img.3dmgame.com/uploads/images/thumbkwdfirst/20180529/1527578329_606706.jpg",
     },

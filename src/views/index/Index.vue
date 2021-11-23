@@ -97,12 +97,10 @@
           <div class="space-y-3 divide-y divide-primary-gray divide-opacity-30">
             <rank-card-item
               v-for="i,idx in ranks"
-              :key="i.id"
+              :key="idx"
               @click-btn="linkto(`/gamedetail?id=${i.id}`)"
-              :index="idx+1"
-              :tags="i.tags"
-              :imgSrc="i.icon"
-              :title="i.name"
+              v-bind="i"
+              :index="idx"
               :score="i.publicScore"
               class="py-3 mx-auto"
               style="width: 372px; height: 104px"
@@ -118,8 +116,7 @@
 import PostCardItem from "../../components/index/PostCardItem.vue";
 import RankCardItem from "../../components/index/RankCardItem.vue";
 import api from '../../api';
-import CardTabs from '../../components/CardTabs.vue';
-import router from "../../routes";
+import CardTabs from '../../components/index/CardTabs.vue';
 
 export default {
   components: { PostCardItem, RankCardItem, CardTabs },

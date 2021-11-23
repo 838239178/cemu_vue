@@ -138,6 +138,6 @@ export default {
   --el-rate-icon-margin: 6px;
 }
 .thumbs {
-  @apply cursor-pointer hover:scale-105 transform duration-100;
+  @apply cursor-pointer hover:scale-110 transform duration-100 active:scale-100;
 }
 </style>

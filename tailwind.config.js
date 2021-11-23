@@ -17,7 +17,8 @@ module.exports = {
         '1/2': '50%'
       },
       width: {
-        'fit': 'fit-content'
+        'fit': 'fit-content',
+        '7/10': '70%'
       },
       height: {
         'fit': 'fit-content',
@@ -39,6 +40,7 @@ module.exports = {
       fontSize: ['responsive', 'hover', 'active'],
       backgroundColor: ['active'],
       animation: ['active'],
+      scale: ['active'],
       borderBottomWidth: ['focus'],
       ringColor: ['active'],
       ringWidth: ['active'],

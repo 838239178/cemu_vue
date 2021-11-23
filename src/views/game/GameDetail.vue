@@ -1,11 +1,17 @@
 <template>
-  <div style="width: 70%" class="mx-auto pt-8 mb-10">
+  <div class="mx-auto pt-8 mb-10 w-7/10">
     <!-- title -->
-    <div
-      class="text-left text-3xl text-gray-200 font-bold leading-10 my-8"
-      style="text-shadow: 10px 10px 20px black"
-    >
-      {{ game.name }}
+    <div class="flex justify-between items-baseline w-full">
+      <div
+        class="text-left text-3xl text-gray-200 font-bold leading-10 my-8"
+        style="text-shadow: 10px 10px 20px black"
+      >
+        {{ game.name }}
+      </div>
+      <div class="text-s2b font-semibold active:text-sm text-dark-white cursor-pointer hover:text-primary-red transition duration-200" style="text-shadow: 2px 2xp 10px #171717;">
+        进入论坛
+        <font-awesome-icon class="text-primary-red" icon="chevron-right"/>
+      </div>
     </div>
     <!-- top -->
     <div class="flex justify-between items-center w-full">

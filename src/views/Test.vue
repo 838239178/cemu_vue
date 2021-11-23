@@ -9,21 +9,24 @@
       class="bg-dark-white"
     ></GameComment>
     <PostComment></PostComment>
-    <RankItem></RankItem>
+    <RankItem class="h-24 w-60 bg-white"></RankItem>
     <div style="height: 337px; width: 674px;" class="flex justify-around items-center space-x-6">
       <ScorePanel mediaScore="8.5" publicScore="9.0"/>
       <DetailPanel :data="game"/>
     </div>
+    <!-- <el-pagination :pager-count="3" :page-count="5"/> -->
+    <Pagination class="w-40" :totalPage="5" :fontSize="sm"/>
   </div>
 </template>
 <script>
 import GameComment from "../components/game/GameComment.vue";
-import PostComment from "../components/PostComment.vue";
-import RankItem from "../components/RankItem.vue";
+import PostComment from "../components/post/PostComment.vue";
+import RankItem from "../components/rank/RankItem.vue";
 import PostCardItem from "../components/index/PostCardItem.vue";
 import RankCardItem from "../components/index/RankCardItem.vue";
 import ScorePanel from "../components/game/ScorePanel.vue";
 import DetailPanel from "../components/game/DetailPanel.vue";
+import Pagination from "../components/Pagination.vue";
 
 export default {
   components: {
@@ -33,7 +36,8 @@ export default {
     PostCardItem,
     RankCardItem,
     ScorePanel,
-    DetailPanel
+    DetailPanel,
+    Pagination
 },
   data() {
     return {
