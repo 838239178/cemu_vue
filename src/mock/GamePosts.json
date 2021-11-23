@@ -1,0 +1,167 @@
+{
+    "data": [
+        {
+            "id": 0,
+            "type": "eval",
+            "title": "《笼中窥梦》IGN CN 评测： 9 分",
+            "desc": "简短但精彩的视觉奇旅",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/z-6166534c8ae0d_sevq.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "score": "9.0",
+            "hotPoint": 156
+        },
+        {
+            "id": 1,
+            "type": "eval",
+            "title": "《Unpacking》IGN 评测 8 分：不费一言讲述一段人生",
+            "desc": "令人心满意足的禅意体验",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-6_pjd5.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "score": "8.5",
+            "hotPoint": 69
+        },
+        {
+            "id": 2,
+            "type": "eval",
+            "title": "《逐光之旅》IGN 评测 6 分：被失控的难度所累",
+            "desc": "觉得一款游戏难度高到玩不下去，是我的问题还是游戏的问题？。",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/20211013145922-1_pkay.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "score": "6.0",
+            "hotPoint": 42
+        },
+        {
+            "id": 3,
+            "type": "eval",
+            "title": "《孤岛惊魂 6》IGN 评测 8 分：该系列近十年来最佳作品",
+            "desc": "内容丰富，精彩纷呈",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_jgjt.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "score": "8.0",
+            "hotPoint": 198
+        },
+        {
+            "id": 4,
+            "type": "eval",
+            "title": "《Lone Echo 2》IGN 评测 6 分：VR 观光力作",
+            "desc": "惊人的 VR 景致，此外别无亮点",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_j5u8.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "score": "6.5",
+            "hotPoint": 580
+        },
+        {
+            "id": 5,
+            "type": "eval",
+            "title": "《银翼杀手：黑莲花》前两集 IGN 评测 6 分：气氛到位，细节不足",
+            "desc": "以女性复制人视角延续官方设定。",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-19_kunw.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "score": "6.0",
+            "hotPoint": 234
+        },
+        {
+            "id": 6,
+            "type": "report",
+            "title": "《侠盗猎车手：三部曲 最终版》即将推出补丁",
+            "desc": "「这些经典游戏更新版推出时并没有达到我们品质的标准」",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/e8m-w6dwyaufgmc_77a5.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 554
+        },
+        {
+            "id": 7,
+            "type": "report",
+            "title": "《诡野西部》IGN 上手前瞻：期盼已久的阴暗神秘西部恶土",
+            "desc": "这份等待值得吗？",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-8_wckf.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 145
+        },
+        {
+            "id": 8,
+            "type": "report",
+            "title": "《人类（HUMANKIND）》体验版上线预告",
+            "desc": "重新书写人类的整个故事。",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/humankindthumb-1611591485982_px7p.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 89
+        },
+        {
+            "id": 9,
+            "type": "report",
+            "title": "《艾尔登法环》IGN JP 试玩报告：《黑暗之魂》系列的正统进化之作",
+            "desc": "对于 From Software 新作的一次全方位体验",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/14tou-tu_k78p.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 101
+        },
+        {
+            "id": 10,
+            "type": "report",
+            "title": "趁热打铁的《破败王者：英雄联盟传奇》能否进一步推高 IP 知名度？",
+            "desc": "《英雄联盟》来到主单机世界",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/ruined-king-1920x10801-waf7_r83h.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 190
+        },
+        {
+            "id": 11,
+            "type": "report",
+            "title": "IGN 独家丨《光环：无限》战役模式上手前瞻",
+            "desc": "4 小时试玩一扫所有担忧。",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/halo-infinite-1630192349113_2tq3.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 156
+        },
+        {
+            "id": 12,
+            "type": "report",
+            "title": "《宝可梦 晶灿钻石／明亮珍珠》前瞻：我心心念念的老派《宝可梦》",
+            "desc": "想知道秘传招式改成什么样了吗？",
+            "author": "IGN中国",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_gdqm.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 888
+        },
+        {
+            "id": 13,
+            "type": "eval",
+            "title": "极限竞速：地平线 5 - 评测",
+            "desc": "新意不足，但量大管饱",
+            "author": "IGN中国",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/forza-horizon-5-1628536441457_ue43.640.jpg",
+            "date": "2021/11/09 09:12:34",
+            "gameId": 2,
+            "postId": 0,
+            "score": "9.5",
+            "hotPoint": 580
+        },
+        {
+            "id": 14,
+            "type": "devmsg",
+            "postId": 1,
+            "gameId": 2,
+            "title": "《Lone Echo 2》IGN 评测 6 分：VR 观光力作",
+            "desc": "惊人的 VR 景致，此外别无亮点",
+            "author": "IGN中国",
+            "authorAvatar": "",
+            "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_j5u8.280.jpg",
+            "date": "2021/11/09 09:12:34",
+            "hotPoint": 580
+        }
+    ]
+}
