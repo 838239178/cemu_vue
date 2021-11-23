@@ -1,5 +1,5 @@
 <template>
-  <div class="grid" :class="`grid-cols-${opts.length}`">
+  <div class="grid grid-flow-col grid-rows-1">
     <button
       class="antialiased"
       :class="[tab, selectedIndex == i ? 'text-white font-semibold':'']"
