@@ -8,6 +8,7 @@
       "
     >
       <div
+        v-show="!welcome"
         class="
           absolute
           left-44
@@ -120,6 +121,12 @@ import CardTabs from '../../components/index/CardTabs.vue';
 
 export default {
   components: { PostCardItem, RankCardItem, CardTabs },
+  props: {
+    welcome: {
+      type: Boolean,
+      default: ()=>{return false}
+    }
+  },
   data() {
     return {
       curReports: null,

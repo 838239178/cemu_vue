@@ -1,10 +1,16 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 // 路由信息
 const routes = [
     {
         path: '/',
-        redirect: '/index'
+        // redirect: '/index',
+        component: () => import('@/views/Welcome.vue'),
+    },
+    {
+        path: '/welcome',
+        // redirect: '/index',
+        component: () => import('@/views/Welcome.vue'),
     },
     {
         path: '/index',
@@ -44,7 +50,7 @@ const routes = [
 
 // 导出路由
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes
 });
 

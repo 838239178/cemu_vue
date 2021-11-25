@@ -26,6 +26,9 @@ module.exports = {
       },
       fontSize: {
         's2b': '15px'
+      },
+      blur: {
+        'xs': '2px'
       }
     },
     backgroundImage: {
@@ -44,6 +47,7 @@ module.exports = {
       borderBottomWidth: ['focus'],
       ringColor: ['active'],
       ringWidth: ['active'],
+      translate: ['active']
     },
   },
   plugins: [],

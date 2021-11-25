@@ -216,12 +216,6 @@ export default {
 </script>
 
 <style scoped>
-.subtitle {
-  @apply text-lg font-bold text-primary-gray py-2 border-b-2 border-gray-200 w-48 text-left px-2 mx-2;
-}
-.bg-gradient-to-t {
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
 .devOpen {
   max-height: 20rem;
 }

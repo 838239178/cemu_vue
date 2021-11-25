@@ -31,6 +31,9 @@ export default {
   getGameData(size = null, start = 0) {
     return gameData.data.slice(start, size);
   },
+  getGameDataAll() {
+    return gameData.data;
+  },
   getGameDateById(id) {
     return gameData.data.find(i => i.id == id);
   },

@@ -12,6 +12,30 @@
   @apply whitespace-nowrap overflow-hidden overflow-ellipsis
 }
 
+.subtitle {
+  @apply text-lg font-bold text-primary-gray py-2 border-b-2 border-gray-200 w-48 text-left px-2 mx-2;
+}
+
+.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-l {
+  background-image: linear-gradient(
+    to left,
+    var(--tw-gradient-from) 5%,
+    var(--tw-gradient-to) 95%
+  );
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(
+    to right,
+    var(--tw-gradient-from) 5%,
+    var(--tw-gradient-to) 95%
+  );
+}
+
 .ripple {
   position: relative;
   overflow: hidden;

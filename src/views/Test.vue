@@ -16,6 +16,7 @@
     </div>
     <!-- <el-pagination :pager-count="3" :page-count="5"/> -->
     <Pagination class="w-40" :totalPage="5" :fontSize="sm"/>
+    <GamesGuide style="width: 940px; height: 353px;" class="shadow-sm" :data="[game]" />
   </div>
 </template>
 <script>
@@ -27,6 +28,7 @@ import RankCardItem from "../components/index/RankCardItem.vue";
 import ScorePanel from "../components/game/ScorePanel.vue";
 import DetailPanel from "../components/game/DetailPanel.vue";
 import Pagination from "../components/Pagination.vue";
+import GamesGuide from "../components/game/GamesGuide.vue";
 
 export default {
   components: {
@@ -37,7 +39,8 @@ export default {
     RankCardItem,
     ScorePanel,
     DetailPanel,
-    Pagination
+    Pagination,
+    GamesGuide
 },
   data() {
     return {

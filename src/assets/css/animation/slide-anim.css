@@ -1,6 +1,8 @@
 .slide-enter-active {
 	-webkit-animation: slide-enter-active 0.5s ease both ;
 	        animation: slide-enter-active 0.5s ease both ;
+  --slide-enter-from-x: 480px;
+  --slide-enter-to-x: -1000px;
 }
 
 /**
@@ -10,23 +12,22 @@
  */
  @-webkit-keyframes slide-enter-active {
     0% {
-      -webkit-transform: translateX(240px);
-              transform: translateX(240px);
+      -webkit-transform: translateX(var(--slide-enter-from-x));
+              transform: translateX(var(--slide-enter-from-x));
     }
     100% {
-      -webkit-transform: translateX(-120px);
-              transform: translateX(-120px);
+      -webkit-transform: translateX(var(--slide-enter-to-x));
+              transform: translateX(var(--slide-enter-to-x));
     }
   }
   @keyframes slide-enter-active {
     0% {
-      -webkit-transform: translateX(240px);
-              transform: translateX(240px);
+      -webkit-transform: translateX(var(--slide-enter-from-x));
+              transform: translateX(var(--slide-enter-from-x));
     }
     100% {
-      -webkit-transform: translateX(-120px);
-              transform: translateX(-120px);
-
+      -webkit-transform: translateX(var(--slide-enter-to-x));
+              transform: translateX(var(--slide-enter-to-x));
     }
   }
 
@@ -37,6 +38,8 @@
   .slide-leave-active {
     -webkit-animation: slide-leave-active 0.5s ease normal;
             animation: slide-leave-active 0.5s ease normal;
+            --slide-leave-from-x: 0px;
+            --slide-leave-to-x: -480px;
   }
   
   /* ----------------------------------------------
@@ -53,22 +56,22 @@
    */
    @-webkit-keyframes slide-leave-active {
       0% {
-        -webkit-transform: translateX(0);
-                transform: translateX(0);
+        -webkit-transform: translateX(var(--slide-leave-from-x));
+                transform: translateX(var(--slide-leave-from-x));
       }
       100% {
-        -webkit-transform: translateX(-480px);
-                transform: translateX(-480px);
+        -webkit-transform: translateX(var(--slide-leave-to-x));
+                transform: translateX(var(--slide-leave-to-x));
       }
     }
     @keyframes slide-leave-active {
       0% {
-        -webkit-transform: translateX(0);
-                transform: translateX(0);
+        -webkit-transform: translateX(var(--slide-leave-from-x));
+                transform: translateX(var(--slide-leave-from-x));
       }
       100% {
-        -webkit-transform: translateX(-480px);
-                transform: translateX(-480px);
+        -webkit-transform: translateX(var(--slide-leave-to-x));
+                transform: translateX(var(--slide-leave-to-x));
       }
     }
   

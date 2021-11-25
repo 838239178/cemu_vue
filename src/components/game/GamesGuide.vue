@@ -1,0 +1,143 @@
+<template>
+  <div
+    class="flex justify-center items-center bg-light-dark bg-opacity-50 pr-4"
+    @mouseover="onHover"
+    @mouseout="onOutHover"
+  >
+    <!-- poster -->
+    <div style="box-shadow: 5px 0px 15px #000;height: 353px;">
+      <el-image
+        :class="isswitch ? 'opacity-0' : 'opacity-100'"
+        class="duration-150 transition-opacity ease-out"
+        style="width: 616px; height: 353px"
+        fit="fill"
+        :src="curPoster"
+      />
+    </div>
+
+    <div style="max-width: 33%" class="space-y-4">
+      <div class="text-left text-xl text-dark-white px-3 py-2">
+        {{ curItem().name }}
+      </div>
+      <div class="grid grid-rows-2 grid-flow-col gap-3">
+        <el-image
+          class="opacity-50 hover:opacity-100 shadow-inner"
+          v-for="(i, idx) in curItem().pics"
+          :key="idx"
+          :src="i"
+          @mouseover="switchPoster(i, idx)"
+        />
+      </div>
+      <div class="text-dark-white space-x-2">
+        <span class="text-base">媒体评分:</span>
+        <AnimNum
+          class="font-semibold text-xl antialiased"
+          :value="curItem().mediaScore"
+          :duration="300"
+          :formatValue="(v) => v.toFixed(1)"
+        />
+        <!-- <span >{{ curItem().mediaScore }}</span> -->
+      </div>
+      <button
+        class="
+          bg-primary-red
+          text-white
+          px-5
+          rounded-3xl
+          text-sm
+          py-2
+          shadow
+          hover:opacity-80
+          active:scale-95
+          transform
+          transition-all
+        "
+      >
+        立即查看
+      </button>
+    </div>
+  </div>
+</template>
+
+<script>
+import AnimNum from "../AnimNum.vue";
+export default {
+  emits: ["changed", "click-post", "update:modelValue"],
+  props: {
+    games: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+    modelValue: Number,
+    interval: {
+      default: () => 40000,
+    },
+  },
+  watch: {
+    games(nval) {
+      this.switchPoster(nval[0].pics[0]);
+    },
+    modelValue(nval) {
+      this.curIdx = nval;
+      this.switchPoster(this.curItem().pics[0]);
+    },
+  },
+  data() {
+    return {
+      curIdx: this.modelValue || 0,
+      curPoster: "",
+      timer: null,
+      isswitch: false,
+      pause: false,
+    };
+  },
+  mounted() {
+    this.start();
+  },
+  unmounted() {
+    this.release();
+  },
+  methods: {
+    start() {
+      this.timer = setInterval(() => {
+        if (this.pause) return;
+        if (this.curIdx + 1 < this.games.length) {
+          this.curIdx++;
+          this.$emit("update:modelValue", this.curIdx, this.curIdx - 1);
+        }
+      }, this.interval);
+    },
+    release() {
+      clearInterval(this.timer);
+      this.timer = null;
+    },
+    onHover() {
+      this.pause = true;
+    },
+    onOutHover() {
+      this.pause = false;
+    },
+    switchPoster(item) {
+      this.isswitch = true;
+      setTimeout(() => {
+        this.curPoster = item;
+        this.isswitch = false;
+      }, 100);
+    },
+    curItem() {
+      return (
+        this.games[this.curIdx] || {
+          name: "",
+          pics: [""],
+        }
+      );
+    },
+  },
+  components: { AnimNum },
+};
+</script>
+
+<style>
+</style>

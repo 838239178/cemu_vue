@@ -10,9 +10,10 @@
       <div class="bg-primary-red font-bold text-white py-2 rounded-t-lg">
         排行榜
       </div>
-      <div class="grid grid-cols-2 grid-rows-6 gap-x-2 gap-y-5 p-4">
+      <div class="grid grid-flow-col grid-rows-6 gap-x-2 gap-y-5 p-4">
         <template v-for="g,i in bigRankData" :key="i">
           <RankItem
+            class="max-w-xs"
             :iconSize="16"
             indexSize="xl"
             v-if="i >= pageLowBound() && i < pageUpBound()"
