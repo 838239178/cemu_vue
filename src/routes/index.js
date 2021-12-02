@@ -4,23 +4,19 @@ import { createRouter, createWebHashHistory } from "vue-router";
 const routes = [
     {
         path: '/',
-        // redirect: '/index',
         component: () => import('@/views/Welcome.vue'),
     },
     {
         path: '/welcome',
-        // redirect: '/index',
         component: () => import('@/views/Welcome.vue'),
     },
     {
         path: '/index',
         component: () => import('@/views/index/Index.vue'),
-        // children: manager
     },
     {
         path: '/login',
         component: () => import('@/views/login/Login.vue'),
-        // children: login
     },
     {
         path: '/community',
@@ -41,6 +37,10 @@ const routes = [
     {
         path: '/rank',
         component: () => import('@/views/rank/GameRank.vue')
+    },
+    {
+        path: '/search',
+        component: () => import('@/views/search/Search.vue')
     },
     {
         path: '/test',

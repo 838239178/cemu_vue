@@ -30,6 +30,7 @@
           <!-- search bar -->
           <el-col :span="7" :offset="0">
             <SearchBar
+              v-show="showSearch"
               class="
                 w480
                 h-7
@@ -39,6 +40,7 @@
                 border-primary-gray border-2
                 rounded-3xl
               "
+              @on-search="routeTo(`/search?kw=${$event}`)"
               :getHints="search"
               placeholder="战地2042首发口碑崩坏 多半差评"
               iptClass="focus:text-white"
@@ -73,18 +75,28 @@ export default {
         ["/gamecenter", { text: "游戏中心", icon: "gamepad" }],
         ["/rank", { text: "排行榜", icon: "crown" }],
       ]),
+      showSearch: true,
       routeIndex: 0
     };
   },
   watch: {
     $route(to,from) {
       this.routeIndex = [...this.routeTable.keys()].findIndex(i=>i == to.path);
+      if(to.path == '/search') {
+        this.showSearch = false;
+      } else {
+        this.showSearch = true;
+      }
     }
   },
   methods: {
     routeTo(s, i) {
-      let ks = [...this.routeTable.keys()];
-      this.$router.push(ks[i]);
+      if (i != undefined) {
+        let ks = [...this.routeTable.keys()];
+        this.$router.push(ks[i]);
+      } else {
+        this.$router.push(s);
+      }
     },
     search(text) {
       let res = api.getGameData(5).filter((i) => {

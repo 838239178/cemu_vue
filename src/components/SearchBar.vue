@@ -1,28 +1,27 @@
 <template>
-  <div class="relative">
-    <input
-      v-model="value"
-      type="text"
-      class="bg-none border-none p-0 m-0 w-full h-full s-input px-4"
-      :class="iptClass"
-      :placeholder="placeholder"
-      @change="doSearch(value)"
-      @focusin="onFocusin"
-      @input="onInput"
-      @focusout="onFocusout"
-    />
-    <font-awesome-icon
-      class="
-        absolute
-        right-4
-        top-1
-        hover:text-primary-red
-        transition
-        hover:scale-105
-        duration-200
-      "
-      icon="search"
-    ></font-awesome-icon>
+  <div>
+    <div class="flex justify-center items-center w-full h-full" :class="iptClass">
+      <input
+        v-model="value"
+        type="text"
+        class="bg-none border-none p-0 m-0 w-11/12 h-full s-input px-1"
+        :placeholder="placeholder"
+        @change="$emit('on-search', value)"
+        @focusin="onFocusin"
+        @input="onInput"
+        @focusout="onFocusout"
+      />
+      <font-awesome-icon
+        class="
+          w-1/12
+          hover:text-primary-red
+          transition
+          hover:scale-105
+          duration-200
+        "
+        icon="search"
+      ></font-awesome-icon>
+    </div>
     <transition name="el-zoom-in-top">
       <div
         v-show="showList"
@@ -56,6 +55,7 @@
 import Lock from '../js/Lock'
 
 export default {
+  emits: ['on-search','update:modelValue'],
   props: {
     iptClass: {
       default: () => "",
@@ -63,6 +63,7 @@ export default {
     placeholder: {
       default: () => "",
     },
+    modelValue: String,
     getHints: {
       type: Function,
     },
@@ -73,11 +74,19 @@ export default {
       default: ()=> 5
     }
   },
+  watch: {
+    modelValue(nval) {
+      this.value = nval;
+    },
+    value(nval, oval) {
+      this.$emit('update:modelValue', nval, oval)
+    }
+  },
   data() {
     return {
       showList: false,
       hintList: [],
-      value: "",
+      value: this.modelValue || "",
       keywordStack: [],
       throttleTimer: null,
       preshow: 0,
@@ -96,9 +105,9 @@ export default {
       this.keywordStack.push(this.value);
       unlock()
       if(this.doThrottle()) return;
-      this.doSearch(this.value);
+      this.searchHint(this.value);
     },
-    doSearch(value) {
+    searchHint(value) {
       // console.log("search:" + value);
       this.showList = true;
       this.hintList = this.getHints(value).slice(0,this.maxRes);
@@ -121,12 +130,11 @@ export default {
         let keyw = this.keywordStack.pop();
         this.keywordStack = []
         unlock();
-        this.doSearch(keyw);
+        this.searchHint(keyw);
       }, this.throttle);
     },
     clickSearch(s) {
       this.value = s;
-      console.log(this.value);
     }
   },
 };
@@ -135,5 +143,6 @@ export default {
 .s-input {
   border-radius: inherit;
   background: inherit;
+  outline: medium;
 }
 </style>

@@ -87,7 +87,7 @@ export default {
   @apply text-lg text-primary-red transition-opacity duration-300;
 }
 .page-item {
-  @apply rounded-full h-fit px-2 py-1 transition-all duration-150 cursor-pointer select-none block;
+  @apply rounded-full h-fit px-2 py-1 transition-all duration-200 cursor-pointer select-none block;
 }
 .page-item-normal {
   @apply text-primary-gray bg-primary-black;
