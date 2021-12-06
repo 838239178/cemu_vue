@@ -8,9 +8,21 @@
       >
         {{ game.name }}
       </div>
-      <div class="text-s2b font-semibold active:text-sm text-dark-white cursor-pointer hover:text-primary-red transition duration-200" style="text-shadow: 2px 2xp 10px #171717;">
+      <div
+        class="
+          text-s2b
+          font-semibold
+          active:text-sm
+          text-dark-white
+          cursor-pointer
+          hover:text-primary-red
+          transition
+          duration-200
+        "
+        style="text-shadow: 2px 2xp 10px #171717"
+      >
         进入论坛
-        <font-awesome-icon class="text-primary-red" icon="chevron-right"/>
+        <font-awesome-icon class="text-primary-red" icon="chevron-right" />
       </div>
     </div>
     <!-- top -->
@@ -56,8 +68,15 @@
         <div class="subtitle">关于这款游戏</div>
         <div
           :class="devOpen ? 'devOpen' : 'devClose'"
-          class="relative w-full wrap-text text-primary-gray text-left transition-all duration-700"
-          style="min-height: 10rem;"
+          class="
+            relative
+            w-full
+            wrap-text
+            text-primary-gray text-left
+            transition-all
+            duration-700
+          "
+          style="min-height: 10rem"
           ref="devMsgDiv"
         >
           {{ devMsgContent.content }}
@@ -117,27 +136,36 @@
               "
             ></div>
           </div>
-          <div class="w-full text-right text-sm text-primary-gray mt-1 hover:text-white transition duration-200 cursor-pointer">
+          <div
+            class="
+              w-full
+              text-right text-sm text-primary-gray
+              mt-1
+              hover:text-white
+              transition
+              duration-200
+              cursor-pointer
+            "
+          >
             阅读更多.. <font-awesome-icon icon="chevron-right" />
           </div>
         </div>
       </div>
     </div>
     <!-- comment -->
+    <CommentSender @send="sendComment" v-model="comment" :disable = "commentState"/>
     <div class="flex justify-between items-start w-full mt-6">
       <div class="space-y-8" style="width: 759px">
         <div class="subtitle">最有价值的评论</div>
         <GameComment
           v-for="i in hotComments"
           :key="i.id"
-          :username="i.username"
-          :content="i.content"
-          :commentDate="i.date"
-          :imgSrc="i.avatar"
+          :comment="i"
           :enable-min-h="true"
-          :thumbs="{ up: i.thumbsUp, down: i.thumbsDown, state: 0 }"
           style="width: 756px; height: 320px"
           class="text-primary-gray bg-light-dark bg-opacity-70 shadow-inner"
+          @thumbs-down="(num,state) => {i.thumbsDown = num; i.state = state}"
+          @thumbs-up="(num,state) => {i.thumbsUp = num; i.state = state}"
         ></GameComment>
       </div>
       <div class="space-y-8" style="width: 520px">
@@ -145,14 +173,12 @@
         <GameComment
           v-for="i in newestComments"
           :key="i.id"
-          :username="i.username"
-          :content="i.content"
+          :comment="i"
           :img-unit="12"
-          :commentDate="i.date"
           :enable-min-h="false"
-          :imgSrc="i.avatar"
-          :thumbs="{ up: i.thumbsUp, down: i.thumbsDown, state: 0 }"
-          style="width: 520px;"
+          @thumbs-down="(num,state) => {i.thumbsDown = num; i.state = state}"
+          @thumbs-up="(num,state) => {i.thumbsUp = num; i.state = state}"
+          style="width: 520px"
           class="bg-light-dark text-primary-gray bg-opacity-70 shadow-inner"
         ></GameComment>
       </div>
@@ -164,13 +190,15 @@ import api from "../../api";
 import DetailPanel from "../../components/game/DetailPanel.vue";
 import ScorePanel from "../../components/game/ScorePanel.vue";
 import GameComment from "../../components/game/GameComment.vue";
+import CommentSender from "../../components/game/CommentSender.vue";
 
 export default {
   components: {
     DetailPanel,
     ScorePanel,
     GameComment,
-  },
+    CommentSender
+},
   data() {
     return {
       game: {
@@ -183,6 +211,8 @@ export default {
       newestComments: [],
       hotComments: [],
       devOpen: false,
+      comment: {},
+      commentState: false,
     };
   },
   mounted() {
@@ -206,10 +236,24 @@ export default {
       console.log(this.game);
     },
     onCarouselChange(i) {
-      this.$refs['gVideo'].pause();
+      this.$refs["gVideo"].pause();
     },
     openDevMsg() {
       this.devOpen = !this.devOpen;
+    },
+    sendComment(comment) {
+      this.commentState = true;
+      comment.score *= 2;
+      this.comment = {
+        ...comment,
+        thumbsUp: 0,
+        thumbsDown: 0,
+        username: "ANON",
+        avatar: "",
+        date: "2021/12/06"
+      },
+      this.newestComments.splice(0,0,this.comment)
+      this.newestComments.pop();
     }
   },
 };

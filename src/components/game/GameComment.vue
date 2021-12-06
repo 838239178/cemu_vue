@@ -6,21 +6,21 @@
           :class="[`w-${imgUnit}`, `h-${imgUnit}`]"
           class="mx-auto my-10"
           style="box-shadow: 2px 2px 5px #171a21"
-          :src="imgSrc"
+          :src="comment.avatar"
         />
       </el-col>
       <el-col :span="3">
-        <div class="my-11 font-bold text-left text-sm">{{ username }}</div>
+        <div class="my-11 font-bold text-left text-sm">{{ comment.username }}</div>
       </el-col>
       <el-col :span="17" class="space-y-3 text-left px-4 py-6">
-        <el-rate class="text-base" v-model="rate" disabled allow-half></el-rate>
-        <div class="font-bold text-sm">发布于 {{ commentDate }}</div>
+        <el-rate class="text-base comment-rate" v-model="rate" disabled allow-half></el-rate>
+        <div class="font-bold text-sm">发布于 {{ comment.date }}</div>
         <div
           :class="enableMinH ? 'min-h-1/2' : ''"
           class="border-b-2 border-primary-gray"
         >
           <div class="px-1 pb-2 wrap-text text-sm">
-            {{ content }}
+            {{ comment.content }}
           </div>
         </div>
         <div class="text-sm font-bold">你觉得这篇评论有价值吗?</div>
@@ -28,7 +28,7 @@
           <span>
             <button
               class="border-none bg-none p-0 m-0"
-              :class="{ 'text-primary-red': thumbsDate.state == 1 }"
+              :class="{ 'text-primary-red': comment.state == 1 }"
               @click="() => setThumbs(1)"
             >
               <font-awesome-icon
@@ -38,7 +38,7 @@
             </button>
             <anim-num
               class="text-sm mx-1"
-              :value="thumbsDate.up"
+              :value="comment.thumbsUp"
               :round="1"
               :formatValue="formatThumbs"
               :duration="300"
@@ -48,7 +48,7 @@
           <span>
             <button
               class="border-none bg-none p-0 m-0"
-              :class="{ 'text-primary-red': thumbsDate.state == -1 }"
+              :class="{ 'text-primary-red': comment.state == -1 }"
               @click="() => setThumbs(-1)"
             >
               <font-awesome-icon
@@ -58,7 +58,7 @@
             </button>
             <anim-num
               class="text-sm mx-1"
-              :value="thumbsDate.down"
+              :value="comment.thumbsDown"
               :round="1"
               :formatValue="formatThumbs"
               :duration="300"
@@ -77,34 +77,26 @@ export default {
   components: {
     AnimNum,
   },
+  emits: ['thumbs-up', 'thumbs-down'],
   props: {
-    username: {
-      default: () => "ABCDEF",
-    },
-    content: {
-      default: () =>
-        "abcaslkdjf;laksdjgaldksfja;lskdjflaskjdflaksdjf;oierupqoeijfa;lskdjf;alsdkfja;lsefj",
-    },
-    imgSrc: {
-      default: () => "https://avatars.githubusercontent.com/u/55338151?v=4",
-    },
-    score: {
-      default: () => 7,
-    },
-    commentDate: {
-      default: () => new Date().toLocaleString("chinese", { hour12: false }),
+    comment: {
+      default: ()=> {
+        return {
+          "id": 8,
+          "gameId": 2,
+          "score": 6.0,
+          "username": "Qin",
+          "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/9b/9b0d4b5213c802759546e82adf1d5fa8d9d2f6a8.jpg",
+          "content": "如果你想玩的够爽，选地平线。如果你想花里胡哨，选地平线。如果你想改装调校，选地平线。如果你想闪退掉线，选地平线",
+          "thumbsUp": 25,
+          "thumbsDown": 1,
+          "date": "2021/11/09 13:01",
+          state: 0,
+        }
+      }
     },
     imgUnit: {
       default: () => 16,
-    },
-    thumbs: {
-      default: () => {
-        return {
-          up: 101,
-          down: 12,
-          state: 0,
-        };
-      },
     },
     enableMinH: {
       default: () => true,
@@ -112,18 +104,16 @@ export default {
   },
   data() {
     return {
-      rate: this.score / 2,
-      thumbsDate: this.thumbs,
+      rate: (this.comment.score / 2).toFixed(1),
     };
   },
   methods: {
     setThumbs(state) {
       if (state == -1) {
-        this.thumbsDate.down += 1;
+        this.$emit('thumbs-down', this.comment.thumbsDown + 1, state)
       } else {
-        this.thumbsDate.up += 1;
+        this.$emit('thumbs-up', this.comment.thumbsUp + 1, state)
       }
-      this.thumbsDate.state = state;
     },
     formatThumbs(num) {
       return `(${num})`;
@@ -132,7 +122,7 @@ export default {
 };
 </script>
 <style scoped>
-.el-rate {
+.comment-rate {
   --el-rate-height: 38px;
   --el-rate-icon-size: 32px;
   --el-rate-icon-margin: 6px;
