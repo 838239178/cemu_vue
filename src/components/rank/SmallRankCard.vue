@@ -16,11 +16,16 @@
       "
     >
       {{ title }}
-      <font-awesome-icon class="cursor-pointer active:text-sm" icon="chevron-right" @click="$emit('click-title')"/>
+      <font-awesome-icon
+        class="cursor-pointer active:text-sm"
+        icon="chevron-right"
+        @click="$emit('click-title')"
+      />
     </div>
     <!-- items -->
     <div class="space-y-8 px-5">
       <RankItem
+        v-wave
         :icon="12"
         class="mx-auto shadow-lg"
         v-for="(i, idx) in data"
@@ -28,6 +33,7 @@
         v-bind="i"
         :score="i.publicScore"
         :index="idx"
+        @click="delayto(`/gamedetail?id=${i.id}`)"
       />
     </div>
   </div>
@@ -40,6 +46,13 @@ export default {
   props: {
     title: String,
     data: Array,
+  },
+  methods: {
+    delayto(path) {
+      setTimeout(() => {
+        this.$router.push(path);
+      }, 150);
+    },
   },
   components: { RankItem },
 };

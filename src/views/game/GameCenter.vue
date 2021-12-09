@@ -18,7 +18,7 @@
       </div>
       <div class="flex justify-around items-center">
         <SwitchButton direc="left" @click="swithPanel(i, -1)" />
-        <GameCardPanel :ref="`gp-${i}`" :games="p.games" />
+        <GameCardPanel :ref="`gp-${i}`" :games="p.games"/>
         <SwitchButton direc="right" @click="swithPanel(i, 1)" />
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="px-2 py-3 cursor-pointer rounded ripple" @click="$emit('click-item', index)">
+  <div class="px-2 py-3 cursor-pointer rounded" @click="$emit('click-item', index)">
     <el-row align="middle" justify="space-around">
       <el-col
         :span="2"

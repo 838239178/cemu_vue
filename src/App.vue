@@ -8,7 +8,7 @@
       >
         <!-- Header content -->
         <el-row :gutter="0" class="h-16" align="middle" justify="space-between">
-          <el-col :span="4"></el-col>
+          <el-col :span="3"></el-col>
           <!-- logo -->
           <el-col :span="2" :offset="0">
             <el-image
@@ -18,7 +18,7 @@
             ></el-image>
           </el-col>
           <!-- tabs -->
-          <el-col :span="6" :offset="0">
+          <el-col :span="5" :offset="0">
             <PageTabs
               class="w-80 h-6 text-sm divide-x divide-primary-gray"
               @linkto="routeTo"
@@ -49,7 +49,7 @@
           <el-col :span="3" :offset="0">
             <UserPanel class="bg-none w-48 h-8" />
           </el-col>
-          <el-col :span="2"></el-col>
+          <el-col :span="3"></el-col>
         </el-row>
       </el-header>
       <div class="p-0 h-full w-full">

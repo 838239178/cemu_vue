@@ -8,7 +8,7 @@
         <el-image class="rounded-full w-8 h-8" :src="avatar"></el-image>
        </template>
        <div class="grid grid-cols-1 divide-y divide-primary-gray">
-        <button v-for="i in opts" :key="i" class="text-left px-4 py-4 active:bg-white flex justify-between items-center ripple">
+        <button v-wave v-for="i in opts" :key="i" class="text-left px-4 py-4 active:bg-white flex justify-between items-center">
           <font-awesome-icon class="text-primary-red" :icon="i.icon"/>
           {{i.text}}
         </button>

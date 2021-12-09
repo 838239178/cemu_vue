@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import route from './routes'
+//wave
+import VWave from 'v-wave'
 //element ui
 import installElement from './plugins/element'
 //font awesome
@@ -13,5 +15,5 @@ const app = createApp(App)
 installElement(app)
 installFontAwesome(app)
 
-app.use(route)
+app.use(route).use(VWave)
 app.mount('#app')

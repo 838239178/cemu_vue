@@ -20,6 +20,7 @@
           duration-200
         "
         style="text-shadow: 2px 2xp 10px #171717"
+        @click="$router.push(`/community?id=${game.id}`)"
       >
         进入论坛
         <font-awesome-icon class="text-primary-red" icon="chevron-right" />
@@ -244,12 +245,13 @@ export default {
     sendComment(comment) {
       this.commentState = true;
       comment.score *= 2;
+      console.log(comment.score)
       this.comment = {
         ...comment,
         thumbsUp: 0,
         thumbsDown: 0,
-        username: "ANON",
-        avatar: "",
+        username: "LikeGhost",
+        avatar: "https://avatars.githubusercontent.com/u/55338151?v=4",
         date: "2021/12/06"
       },
       this.newestComments.splice(0,0,this.comment)

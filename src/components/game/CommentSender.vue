@@ -14,10 +14,11 @@
         from-light-dark
         to-primary-black
         bg-opacity-60
+        shadow-inner
       "
     >
-      <div>
-        <el-image class="w-32 h-32" fit="fill" :src="user.avatar"></el-image>
+      <div class="rounded">
+        <el-image class="w-32 h-32 rounded" style="box-shadow: 2px 2px 5px #171a21" fit="fill" :src="user.avatar"></el-image>
         <div class="mt-5 text-primary-gray font-semibold">{{user.username}}</div>
       </div>
       <div class="w-7/10">
@@ -60,12 +61,13 @@ export default {
       default: ()=> false
     },  
     user: {
-      default: ()=> {return {username: "ANON"}}
+      default: ()=> {return {username: "LikeGhost", avatar: "https://avatars.githubusercontent.com/u/55338151?v=4"}}
     },
   },
   watch: {
     modelValue(nval) {
       this.comment = nval;
+      this.comment.score /= 2;
     }
   },
   data() {

@@ -1,5 +1,10 @@
 <template>
-  <div class="shadow-lg bg-white ripple" :class="showDate ? 'rounded-2xl' : 'rounded-lg' " @click="$emit('click-post', postData)">
+  <div
+    v-wave
+    class="shadow-lg bg-white"
+    :class="showDate ? 'rounded-2xl' : 'rounded-lg'"
+    @click="$emit('click-post', postData)"
+  >
     <el-row
       :gutter="10"
       align="middle"
@@ -39,8 +44,20 @@
         </div>
       </el-col>
       <el-col :span="showDate ? 16 : 13" :offset="0" class="h-full">
-        <div class="text-left py-2 px-1" :class="showDate ? 'space-y-3' : 'space-y-2'">
-          <div class="w-full text-sm text-primary-gray flex justify-between items-center" v-if="showDate">
+        <div
+          class="text-left py-2 px-1"
+          :class="showDate ? 'space-y-3' : 'space-y-2'"
+        >
+          <div
+            class="
+              w-full
+              text-sm text-primary-gray
+              flex
+              justify-between
+              items-center
+            "
+            v-if="showDate"
+          >
             <div>
               <font-awesome-icon icon="clock" />
               {{ postData.date }}
@@ -63,8 +80,11 @@
           <div class="text-xs text-wrap">
             {{ postData.desc }}
           </div>
-          <div class="text-xs px-2 text-right w-full text-primary-red" v-if="!showDate">
-              {{ postData.author }}
+          <div
+            class="text-xs px-2 text-right w-full text-primary-red"
+            v-if="!showDate"
+          >
+            {{ postData.author }}
           </div>
         </div>
       </el-col>
@@ -73,19 +93,19 @@
 </template>
 <script>
 export default {
-  emits:['click-post'],
+  emits: ["click-post"],
   props: {
     postData: {
       default: () => {
         return {
           title: "《暗黑地牢2》抢先评测：人类，在希望的绝路上狂奔",
           desc: "希望所有人都不必再成为孤高的英雄",
-          date:  new Date().toLocaleString("chinese", { hour12: false }),
+          date: new Date().toLocaleString("chinese", { hour12: false }),
           author: "IGN中国",
           pic: "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/2021111702405800-9e32ac640f095d6cacba21f3cd092595_vrpp.280.jpg",
-          score: 8.5
-        }
-      }
+          score: 8.5,
+        };
+      },
     },
     score: {
       default: () => false,
@@ -95,8 +115,7 @@ export default {
     },
   },
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>

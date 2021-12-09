@@ -17,7 +17,7 @@
         "
         style="max-width: 32%; height: 360px"
       >
-        <el-image class="h-full rounded-lg opacity-80" fit="cover" :src="g.pics[0]" style="box-shadow: 3px 5px 10px #000;"/>
+        <el-image class="h-full rounded-lg opacity-80 cursor-pointer hover:opacity-100 transition-opacity duration-200" fit="cover" :src="g.pics[0]" style="box-shadow: 3px 5px 10px #000;" @click="$router.push(`/gamedetail?id=${g.id}`)"/>
         <div
           class="
             rounded-b-lg

@@ -23,7 +23,7 @@ const routes = [
         component: () => import('@/views/community/Community.vue')
     },
     {
-        path: '/compost',
+        path: '/postdetail',
         component: () => import('@/views/community/Post.vue')
     },
     {

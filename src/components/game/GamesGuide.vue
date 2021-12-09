@@ -52,6 +52,7 @@
           transform
           transition-all
         "
+        @click="$router.push(`/gamedetail?id=${curItem().id}`)"
       >
         立即查看
       </button>

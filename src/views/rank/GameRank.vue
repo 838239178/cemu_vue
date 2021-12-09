@@ -13,12 +13,14 @@
       <div class="grid grid-flow-col grid-rows-6 gap-x-2 gap-y-5 p-4">
         <template v-for="g,i in bigRankData" :key="i">
           <RankItem
+            v-wave
             class="max-w-xs"
             :iconSize="16"
             indexSize="xl"
             v-if="i >= pageLowBound() && i < pageUpBound()"
             :index="i" :score="g.publicScore"
             v-bind="g"
+            @click="delayto(`/gamedetail?id=${g.id}`)" 
           />
         </template>
       </div>
@@ -58,6 +60,11 @@ export default {
     },
     changeTo(arr) {
       this.bigRankData = arr;
+    },
+    delayto(path) {
+      setTimeout(() => {
+        this.$router.push(path);
+      }, 150);
     }
   }
 };

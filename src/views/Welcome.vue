@@ -70,6 +70,11 @@ export default {
   mounted(){
     document.body.style.overflow = 'hidden';
   },
+  watch: {
+    $route() {
+      document.body.style.overflow = 'auto';
+    }
+  },
   methods: {
     startTrans() {
       setTimeout(() => {

@@ -19,7 +19,7 @@
           :class="enableMinH ? 'min-h-1/2' : ''"
           class="border-b-2 border-primary-gray"
         >
-          <div class="px-1 pb-2 wrap-text text-sm">
+          <div class="px-1 pb-2 wrap-text text-dark-white text-sm">
             {{ comment.content }}
           </div>
         </div>
