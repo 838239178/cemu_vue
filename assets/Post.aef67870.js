@@ -1,0 +1,1 @@
+import{c as e,t as s,o as r}from"./vendor.084c55b8.js";import{_ as i}from"./index.cb77e3ee.js";const c={data(){return{post:{},comments:[]}},mounted(){let t=this.$route.query.id;this.loadPost(t)},methods:{loadPost(t){this.post.id=t}}},n={class:"text-white"};function a(t,d,p,_,o,m){return r(),e("div",n,s(o.post.id),1)}var f=i(c,[["render",a]]);export{f as default};
