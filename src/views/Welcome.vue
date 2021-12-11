@@ -39,7 +39,7 @@
       "
       :class="trans ? 'trans-to-active ' : ''"
     >
-      CEMU<span class="text-primary-red text-8xl text-flicker-in-glow" ref="games"> Games</span>
+      CEMU <span class="text-primary-red text-8xl text-flicker-in-glow" ref="games">Games</span>
     </div>
     <div
       class="
@@ -57,7 +57,7 @@
       "
       :class="trans ? 'opacity-0' : ''"
     >
-      <div class="type-anim text-primary-black pr-1" style="text-shadow: 0 0 5px rgb(114, 114, 114);">我们是致力于发现好游戏的游戏社区</div>
+      <div class="type-anim text-primary-black" style="text-shadow: 0 0 5px rgb(114, 114, 114);">我们是致力于发现好游戏的游戏社区</div>
     </div>
     <div class="z-20 absolute bottom-20 text-center w-full">
       <button

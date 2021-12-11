@@ -142,6 +142,7 @@
 @keyframes text-flicker-in-glow {
   0% {
     opacity: 1;
+    color: white;
   }
   10% {
     opacity: 0;
@@ -261,6 +262,7 @@
   }
   100% {
     opacity: 1;
+    color: #bf1313;
     text-shadow: 0 0 10px rgba(255, 67, 67, 0.6), 0 0 60px rgba(255, 67, 67, 0.45), 0 0 110px rgba(255, 67, 67, 0.25), 0 0 100px rgba(255, 67, 67, 0.1);
   }
 }

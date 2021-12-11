@@ -2,8 +2,7 @@
   border-right: 2px solid transparent;
   overflow: hidden; /* 多余的文字内容隐藏 */
   white-space: nowrap;
-  animation: type-border 0.9s infinite normal,
-    type-width 1.5s steps(9); /* 重点 steps() */
+  animation: type-border 1s infinite normal, type-width 1.5s steps(9) 0.8s both; /* 重点 steps() */
 }
 /* 边框闪烁动画 模拟指针闪烁 */	
 @keyframes type-border {
@@ -16,5 +15,6 @@
   }
   to {
     width: 400px;
+    padding-right: 1px;
   }
 }
