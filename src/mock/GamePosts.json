@@ -7,7 +7,8 @@
             "desc": "简短但精彩的视觉奇旅",
             "author": "IGN中国",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/z-6166534c8ae0d_sevq.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/12/09 09:12:34",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "score": "9.0",
             "hotPoint": 156
         },
@@ -20,6 +21,7 @@
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-6_pjd5.280.jpg",
             "date": "2021/11/09 09:12:34",
             "score": "8.5",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "hotPoint": 69
         },
         {
@@ -28,8 +30,9 @@
             "title": "《逐光之旅》IGN 评测 6 分：被失控的难度所累",
             "desc": "觉得一款游戏难度高到玩不下去，是我的问题还是游戏的问题？。",
             "author": "IGN中国",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/20211013145922-1_pkay.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/12/30 23:12:34",
             "score": "6.0",
             "hotPoint": 42
         },
@@ -39,8 +42,9 @@
             "title": "《孤岛惊魂 6》IGN 评测 8 分：该系列近十年来最佳作品",
             "desc": "内容丰富，精彩纷呈",
             "author": "IGN中国",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_jgjt.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2020/11/09 09:12:34",
             "score": "8.0",
             "hotPoint": 198
         },
@@ -51,7 +55,7 @@
             "desc": "惊人的 VR 景致，此外别无亮点",
             "author": "IGN中国",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_j5u8.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/09 09:51:34",
             "score": "6.5",
             "hotPoint": 580
         },
@@ -61,8 +65,9 @@
             "title": "《银翼杀手：黑莲花》前两集 IGN 评测 6 分：气氛到位，细节不足",
             "desc": "以女性复制人视角延续官方设定。",
             "author": "IGN中国",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-19_kunw.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/02/09 01:12:34",
             "score": "6.0",
             "hotPoint": 234
         },
@@ -72,8 +77,9 @@
             "title": "《侠盗猎车手：三部曲 最终版》即将推出补丁",
             "desc": "「这些经典游戏更新版推出时并没有达到我们品质的标准」",
             "author": "IGN中国",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/e8m-w6dwyaufgmc_77a5.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/09/09 09:02:34",
             "hotPoint": 554
         },
         {
@@ -81,9 +87,10 @@
             "type": "report",
             "title": "《诡野西部》IGN 上手前瞻：期盼已久的阴暗神秘西部恶土",
             "desc": "这份等待值得吗？",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "author": "IGN中国",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-8_wckf.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/01/07 09:15:34",
             "hotPoint": 145
         },
         {
@@ -92,28 +99,33 @@
             "title": "《人类（HUMANKIND）》体验版上线预告",
             "desc": "重新书写人类的整个故事。",
             "author": "IGN中国",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/humankindthumb-1611591485982_px7p.280.jpg",
-            "date": "2021/11/09 09:12:34",
-            "hotPoint": 89
+            "date": "2021/11/11 12:12:34",
+            "hotPoint": 89,
+            "tags": ["开发者", "AD"]
         },
         {
             "id": 9,
             "type": "report",
             "title": "《艾尔登法环》IGN JP 试玩报告：《黑暗之魂》系列的正统进化之作",
             "desc": "对于 From Software 新作的一次全方位体验",
-            "author": "IGN中国",
+            "author": "GameSpot",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/14tou-tu_k78p.280.jpg",
-            "date": "2021/11/09 09:12:34",
-            "hotPoint": 101
+            "date": "2021/11/09 10:12:34",
+            "hotPoint": 101,
+            "tags": ["推荐"]
         },
         {
             "id": 10,
             "type": "report",
             "title": "趁热打铁的《破败王者：英雄联盟传奇》能否进一步推高 IP 知名度？",
             "desc": "《英雄联盟》来到主单机世界",
-            "author": "IGN中国",
+            "author": "TapTap",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/ruined-king-1920x10801-waf7_r83h.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/08 09:10:34",
             "hotPoint": 190
         },
         {
@@ -121,9 +133,10 @@
             "type": "report",
             "title": "IGN 独家丨《光环：无限》战役模式上手前瞻",
             "desc": "4 小时试玩一扫所有担忧。",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "author": "IGN中国",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/halo-infinite-1630192349113_2tq3.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/08 11:12:34",
             "hotPoint": 156
         },
         {
@@ -132,22 +145,25 @@
             "title": "《宝可梦 晶灿钻石／明亮珍珠》前瞻：我心心念念的老派《宝可梦》",
             "desc": "想知道秘传招式改成什么样了吗？",
             "author": "IGN中国",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_gdqm.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/07 09:12:34",
             "hotPoint": 888
         },
         {
             "id": 13,
             "type": "eval",
             "title": "极限竞速：地平线 5 - 评测",
+            "userId": 1,
             "desc": "新意不足，但量大管饱",
-            "author": "IGN中国",
+            "author": "IGN美国",
             "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/forza-horizon-5-1628536441457_ue43.640.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/03/19 09:12:34",
             "gameId": 2,
             "postId": 0,
             "score": "9.5",
+            "views": 5091,
             "hotPoint": 580
         },
         {
@@ -157,10 +173,10 @@
             "gameId": 2,
             "title": "《Lone Echo 2》IGN 评测 6 分：VR 观光力作",
             "desc": "惊人的 VR 景致，此外别无亮点",
-            "author": "IGN中国",
-            "authorAvatar": "",
+            "author": "IGN日本",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_j5u8.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/05/09 09:12:34",
             "hotPoint": 580
         }
     ]

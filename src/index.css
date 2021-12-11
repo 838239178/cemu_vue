@@ -39,3 +39,13 @@
     var(--tw-gradient-to) 95%
   );
 }
+
+.text-gradient-to-t {
+  background-image: linear-gradient(
+    to top,
+    var(--tw-gradient-from) 5%,
+    var(--tw-gradient-to) 95%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -10,12 +10,9 @@
         items-start
         my-10
         rounded-2xl
-        bg-gradient-to-r
-        from-light-dark
-        to-primary-black
-        bg-opacity-60
         shadow-inner
       "
+      :class="bgClass"
     >
       <div class="rounded">
         <el-image class="w-32 h-32 rounded" style="box-shadow: 2px 2px 5px #171a21" fit="fill" :src="user.avatar"></el-image>
@@ -60,6 +57,9 @@ export default {
       type: Boolean,
       default: ()=> false
     },  
+    bgClass: {
+      default: () => "bg-gradient-to-r from-light-dark to-primary-black bg-opacity-60"
+    },
     user: {
       default: ()=> {return {username: "LikeGhost", avatar: "https://avatars.githubusercontent.com/u/55338151?v=4"}}
     },

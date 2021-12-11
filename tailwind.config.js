@@ -15,18 +15,33 @@ module.exports = {
         '4/5': '80%',
         '7/10': '70%',
         '1/2': '50%',
-        '1/3': '33.333%'
+        '1/3': '33.333%',
+        '44': '11rem',
+        '32': '8rem',
+        '28': '7rem'
+      },
+      padding: {
+        '0.7': '3px'
+      },
+      minWidth: {
+        '44': '11rem'
       },
       width: {
         'fit': 'fit-content',
         '7/10': '70%'
+      },
+      inset: {
+        '-100': '-25rem',
+        '-120': '-30rem',
+        '-124': '-32rem'
       },
       height: {
         'fit': 'fit-content',
         '7-5': '30px'
       },
       fontSize: {
-        's2b': '15px'
+        's2b': '15px',
+        'xxs': ['10px', '10px']
       },
       blur: {
         'xs': '2px'
@@ -43,7 +58,7 @@ module.exports = {
       fontWeight:['responsive', 'hover', 'focus'],
       fontSize: ['responsive', 'hover', 'active'],
       backgroundColor: ['active'],
-      animation: ['active'],
+      animation: ['active','group-hover'],
       scale: ['active'],
       borderBottomWidth: ['focus'],
       ringColor: ['active'],

@@ -18,8 +18,12 @@
           hover:text-primary-red
           transition
           duration-200
+          bg-light-dark
+          bg-opacity-40
+          px-4
+          py-2
+          rounded-2xl
         "
-        style="text-shadow: 2px 2xp 10px #171717"
         @click="$router.push(`/community?id=${game.id}`)"
       >
         进入论坛

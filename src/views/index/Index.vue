@@ -17,10 +17,11 @@
           text-6xl text-white
           subpixel-antialiased
           font-extrabold
+          font-mono
+          txt-shadow
         "
-        style="text-shadow: 5px 5px 5px #000000"
       >
-        C E M U
+        CEMU<span class="text-primary-red text-8xl games"> Games</span>
       </div>
     </div>
     <div class="flex justify-center items-center my-5 mx-auto">
@@ -243,6 +244,12 @@ export default {
 .card-shadow {
   /* box-shadow: 2px 2px 15px #797979; */
   @apply shadow-inner;
+}
+.txt-shadow {
+  text-shadow: 5px 5px 10px rgb(0 0 0 / 65%);
+}
+.games {
+  text-shadow: 0 0 10px rgba(255, 67, 67, 0.6), 0 0 60px rgba(255, 67, 67, 0.45), 0 0 110px rgba(255, 67, 67, 0.25), 0 0 100px rgba(255, 67, 67, 0.1);
 }
 .h812px {
   height: 812px;

@@ -2,10 +2,10 @@
   <div
     class="
       flex
-      justify-around
       items-end
       border-b border-primary-black
     "
+    :class="justify"
   >
     <button
       v-for="(s, i) in tabs"
@@ -20,7 +20,21 @@
 <script>
 export default {
   emits: ["tab-click"],
-  props: ["tabs", "tabClass"],
+  props: {
+    tabs: Array,
+    tabClass: String,
+    justify: {
+      default: ()=> "around"
+    }
+  },
+  computed: {
+    justify() {
+      return {
+        'justify-around': this.justify === "around",
+        'justify-start': this.justify === "start",
+      }
+    }
+  },
   data() {
     return {
       normalTab: "bg-primary-black text-primary-gray",
