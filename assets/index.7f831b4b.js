@@ -1,4 +1,4 @@
-import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f as P,t as y,T as R,g as L,h as A,i as O,j as $,k as U,z as F,l as H,_ as z,m as J,p as B,V as q}from"./vendor.084c55b8.js";const W=function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))a(n);new MutationObserver(n=>{for(const s of n)if(s.type==="childList")for(const i of s.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function o(n){const s={};return n.integrity&&(s.integrity=n.integrity),n.referrerpolicy&&(s.referrerPolicy=n.referrerpolicy),n.crossorigin==="use-credentials"?s.credentials="include":n.crossorigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function a(n){if(n.ep)return;n.ep=!0;const s=o(n);fetch(n.href,s)}};W();var M="/cemu_vue/assets/logo.0c747f41.png";class K{constructor(){this.isLock=!1,this.lockList=[]}async getLock(){let e=this;function o(){let a=e.lockList.shift();a?a.resolve(o):e.isLock=!1}return this.isLock?new Promise((a,n)=>{this.lockList.push({resolve:a,reject:n})}):(this.isLock=!0,o)}}var x=(t,e)=>{const o=t.__vccOpts||t;for(const[a,n]of e)o[a]=n;return o};const Q={emits:["on-search","update:modelValue"],props:{iptClass:{default:()=>""},placeholder:{default:()=>""},modelValue:String,getHints:{type:Function},throttle:{default:()=>200},maxRes:{default:()=>5}},watch:{modelValue(t){this.value=t},value(t,e){this.$emit("update:modelValue",t,e)}},data(){return{showList:!1,hintList:[],value:this.modelValue||"",keywordStack:[],throttleTimer:null,preshow:0,lock:new K}},methods:{doThrottle(){let t=new Date().getTime(),e=t-this.preshow;return this.preshow=t,e<=this.throttle},async onInput(t){let e=await this.lock.getLock();this.keywordStack.push(this.value),e(),!this.doThrottle()&&this.searchHint(this.value)},searchHint(t){this.showList=!0,this.hintList=this.getHints(t).slice(0,this.maxRes)},onFocusout(t){setTimeout(()=>{this.showList=!1},150),clearInterval(this.throttleTimer),this.throttleTimer=null,this.keywordStack=[]},onFocusin(t){this.throttleTimer=setInterval(async()=>{let e=await this.lock.getLock();if(this.keywordStack.length==0||this.doThrottle()){e();return}let o=this.keywordStack.pop();this.keywordStack=[],e(),this.searchHint(o)},this.throttle)},clickSearch(t){this.value=t}}},X=["placeholder"],Y={class:"mt-1 px-3 border-b border-l border-r rounded w-11/12 ml-2 h-fit grid grid-cols-1 divide-y divide-primary-gray",style:{"background-color":"inherit",color:"inherit","border-color":"inherit","box-shadow":"3px 5px 15px #333333"}},Z=["onClick"];function ee(t,e,o,a,n,s){const i=d("font-awesome-icon");return u(),m("div",null,[g("div",{class:S(["flex justify-center items-center w-full h-full",o.iptClass])},[w(g("input",{"onUpdate:modelValue":e[0]||(e[0]=c=>n.value=c),type:"text",class:"bg-none border-none p-0 m-0 w-11/12 h-full s-input px-1",placeholder:o.placeholder,onChange:e[1]||(e[1]=c=>t.$emit("on-search",n.value)),onFocusin:e[2]||(e[2]=(...c)=>s.onFocusin&&s.onFocusin(...c)),onInput:e[3]||(e[3]=(...c)=>s.onInput&&s.onInput(...c)),onFocusout:e[4]||(e[4]=(...c)=>s.onFocusout&&s.onFocusout(...c))},null,40,X),[[C,n.value]]),r(i,{class:"w-1/12 hover:text-primary-red transition hover:scale-105 duration-200",icon:"search"})],2),r(R,{name:"el-zoom-in-top"},{default:h(()=>[w(g("div",Y,[(u(!0),m(j,null,P(n.hintList,(c,l)=>(u(),m("button",{onClick:_=>s.clickSearch(c),key:l,style:{"font-size":"inherit"},class:"px-4 py-4 w-full text-left"},y(c),9,Z))),128))],512),[[G,n.showList]])]),_:1})])}var te=x(Q,[["render",ee],["__scopeId","data-v-b3d3ef4c"]]);const ne={emits:["linkto","update:modelValue"],props:{opts:{default:()=>[]},modelValue:{default:()=>0}},watch:{modelValue(t){this.selectedIndex=t}},data(){return{tab:"hover:text-white transition duration-300",selectedIndex:this.modelValue}},methods:{linktoEvent(t,e){this.selectedIndex=e,this.$emit("linkto",t,e),this.$emit("update:modelValue",e)}}},oe={class:"grid grid-flow-col grid-rows-1"},se=["onClick"];function ae(t,e,o,a,n,s){const i=d("font-awesome-icon");return u(),m("div",oe,[(u(!0),m(j,null,P(o.opts,(c,l)=>(u(),m("button",{class:S(["antialiased",[n.tab,n.selectedIndex==l?"text-white font-semibold":""]]),key:l,onClick:_=>s.linktoEvent(c,l)},[g("span",null,[r(i,{icon:c.icon},null,8,["icon"]),L("\xA0\u2009"+y(c.text),1)])],10,se))),128))])}var ie=x(ne,[["render",ae]]);const ce={emits:["quit-login"],props:{username:{default:()=>"LikeGhost"},avatar:{default:()=>"https://avatars.githubusercontent.com/u/55338151?v=4"}},data(){return{opts:[{text:"\u4E2A\u4EBA\u4E2D\u5FC3",icon:"user"},{text:"\u6536\u85CF\u5939",icon:"heart"},{text:"\u6D88\u606F\u901A\u77E5",icon:"envelope"}]}}},re={class:"flex justify-between items-center mx-auto"},de={class:"grid grid-cols-1 divide-y divide-primary-gray"},le={class:"text-primary-gray cursor-pointer"};function pe(t,e,o,a,n,s){const i=d("el-image"),c=d("font-awesome-icon"),l=d("el-popover"),_=A("wave");return u(),m("div",re,[r(l,{placement:"bottom",width:"150px",trigger:"hover"},{reference:h(()=>[r(i,{class:"rounded-full w-8 h-8",src:o.avatar},null,8,["src"])]),default:h(()=>[g("div",de,[(u(!0),m(j,null,P(n.opts,f=>w((u(),m("button",{key:f,class:"text-left px-4 py-4 active:bg-white flex justify-between items-center"},[r(c,{class:"text-primary-red",icon:f.icon},null,8,["icon"]),L(" "+y(f.text),1)],512)),[[_]])),128))])]),_:1}),g("div",le,y(o.username),1),r(c,{onClick:e[0]||(e[0]=f=>t.$emit("quit-login")),class:"text-primary-gray text-lg hover:text-white transition duration-200",icon:"sign-out-alt"})])}var ue=x(ce,[["render",pe]]),me=`{
+import{r as d,o as u,c as m,a as g,w as b,v as V,b as r,n as S,d as h,e as G,F as j,f as P,t as y,T as R,g as L,h as C,i as O,j as U,k as $,z as F,l as H,_ as z,m as J,p as B,V as q}from"./vendor.8394f990.js";const W=function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))s(n);new MutationObserver(n=>{for(const o of n)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&s(i)}).observe(document,{childList:!0,subtree:!0});function a(n){const o={};return n.integrity&&(o.integrity=n.integrity),n.referrerpolicy&&(o.referrerPolicy=n.referrerpolicy),n.crossorigin==="use-credentials"?o.credentials="include":n.crossorigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(n){if(n.ep)return;n.ep=!0;const o=a(n);fetch(n.href,o)}};W();var M="/cemu_vue/assets/logo.0c747f41.png";class K{constructor(){this.isLock=!1,this.lockList=[]}async getLock(){let e=this;function a(){let s=e.lockList.shift();s?s.resolve(a):e.isLock=!1}return this.isLock?new Promise((s,n)=>{this.lockList.push({resolve:s,reject:n})}):(this.isLock=!0,a)}}var x=(t,e)=>{const a=t.__vccOpts||t;for(const[s,n]of e)a[s]=n;return a};const Q={emits:["on-search","update:modelValue"],props:{iptClass:{default:()=>""},placeholder:{default:()=>""},modelValue:String,getHints:{type:Function},throttle:{default:()=>200},maxRes:{default:()=>5}},watch:{modelValue(t){this.value=t},value(t,e){this.$emit("update:modelValue",t,e)}},data(){return{showList:!1,hintList:[],value:this.modelValue||"",keywordStack:[],throttleTimer:null,preshow:0,lock:new K}},methods:{doThrottle(){let t=new Date().getTime(),e=t-this.preshow;return this.preshow=t,e<=this.throttle},async onInput(t){let e=await this.lock.getLock();this.keywordStack.push(this.value),e(),!this.doThrottle()&&this.searchHint(this.value)},searchHint(t){this.showList=!0,this.hintList=this.getHints(t).slice(0,this.maxRes)},onFocusout(t){setTimeout(()=>{this.showList=!1},150),clearInterval(this.throttleTimer),this.throttleTimer=null,this.keywordStack=[]},onFocusin(t){this.throttleTimer=setInterval(async()=>{let e=await this.lock.getLock();if(this.keywordStack.length==0||this.doThrottle()){e();return}let a=this.keywordStack.pop();this.keywordStack=[],e(),this.searchHint(a)},this.throttle)},clickSearch(t){this.value=t}}},X=["placeholder"],Y={class:"mt-1 px-3 border-b border-l border-r rounded w-11/12 ml-2 h-fit grid grid-cols-1 divide-y divide-primary-gray",style:{"background-color":"inherit",color:"inherit","border-color":"inherit","box-shadow":"3px 5px 15px #333333"}},Z=["onClick"];function ee(t,e,a,s,n,o){const i=d("font-awesome-icon");return u(),m("div",null,[g("div",{class:S(["flex justify-center items-center w-full h-full",a.iptClass])},[b(g("input",{"onUpdate:modelValue":e[0]||(e[0]=c=>n.value=c),type:"text",class:"bg-none border-none p-0 m-0 w-11/12 h-full s-input px-1",placeholder:a.placeholder,onChange:e[1]||(e[1]=c=>t.$emit("on-search",n.value)),onFocusin:e[2]||(e[2]=(...c)=>o.onFocusin&&o.onFocusin(...c)),onInput:e[3]||(e[3]=(...c)=>o.onInput&&o.onInput(...c)),onFocusout:e[4]||(e[4]=(...c)=>o.onFocusout&&o.onFocusout(...c))},null,40,X),[[V,n.value]]),r(i,{class:"w-1/12 hover:text-primary-red transition hover:scale-105 duration-200",icon:"search"})],2),r(R,{name:"el-zoom-in-top"},{default:h(()=>[b(g("div",Y,[(u(!0),m(j,null,P(n.hintList,(c,l)=>(u(),m("button",{onClick:f=>o.clickSearch(c),key:l,style:{"font-size":"inherit"},class:"px-4 py-4 w-full text-left"},y(c),9,Z))),128))],512),[[G,n.showList]])]),_:1})])}var te=x(Q,[["render",ee],["__scopeId","data-v-b3d3ef4c"]]);const ne={emits:["linkto","update:modelValue"],props:{opts:{default:()=>[]},modelValue:{default:()=>0}},watch:{modelValue(t){this.selectedIndex=t}},data(){return{tab:"hover:text-white transition duration-300",selectedIndex:this.modelValue}},methods:{linktoEvent(t,e){this.selectedIndex=e,this.$emit("linkto",t,e),this.$emit("update:modelValue",e)}}},ae={class:"grid grid-flow-col grid-rows-1"},oe=["onClick"];function se(t,e,a,s,n,o){const i=d("font-awesome-icon");return u(),m("div",ae,[(u(!0),m(j,null,P(a.opts,(c,l)=>(u(),m("button",{class:S(["antialiased",[n.tab,n.selectedIndex==l?"text-white font-semibold":""]]),key:l,onClick:f=>o.linktoEvent(c,l)},[g("span",null,[r(i,{icon:c.icon},null,8,["icon"]),L("\xA0\u2009"+y(c.text),1)])],10,oe))),128))])}var ie=x(ne,[["render",se]]);const ce={emits:["quit-login"],props:{username:{default:()=>"LikeGhost"},avatar:{default:()=>"https://avatars.githubusercontent.com/u/55338151?v=4"}},data(){return{opts:[{text:"\u4E2A\u4EBA\u4E2D\u5FC3",icon:"user"},{text:"\u6536\u85CF\u5939",icon:"heart"},{text:"\u6D88\u606F\u901A\u77E5",icon:"envelope"}]}}},re={class:"flex justify-between items-center mx-auto"},de={class:"grid grid-cols-1 divide-y divide-primary-gray"},le={class:"text-primary-gray cursor-pointer"};function pe(t,e,a,s,n,o){const i=d("el-image"),c=d("font-awesome-icon"),l=d("el-popover"),f=C("wave");return u(),m("div",re,[r(l,{placement:"bottom",width:"150px",trigger:"hover"},{reference:h(()=>[r(i,{class:"rounded-full w-8 h-8",src:a.avatar},null,8,["src"])]),default:h(()=>[g("div",de,[(u(!0),m(j,null,P(n.opts,_=>b((u(),m("button",{key:_,class:"text-left px-4 py-4 active:bg-white flex justify-between items-center"},[r(c,{class:"text-primary-red",icon:_.icon},null,8,["icon"]),L(" "+y(_.text),1)],512)),[[f]])),128))])]),_:1}),g("div",le,y(a.username),1),r(c,{onClick:e[0]||(e[0]=_=>t.$emit("quit-login")),class:"text-primary-gray text-lg hover:text-white transition duration-200",icon:"sign-out-alt"})])}var ue=x(ce,[["render",pe]]),me=`{
     "data": [
         {
             "id": 0,
@@ -7,7 +7,8 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "desc": "\u7B80\u77ED\u4F46\u7CBE\u5F69\u7684\u89C6\u89C9\u5947\u65C5",
             "author": "IGN\u4E2D\u56FD",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/z-6166534c8ae0d_sevq.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/12/09 09:12:34",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "score": "9.0",
             "hotPoint": 156
         },
@@ -20,6 +21,7 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-6_pjd5.280.jpg",
             "date": "2021/11/09 09:12:34",
             "score": "8.5",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "hotPoint": 69
         },
         {
@@ -28,8 +30,9 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "title": "\u300A\u9010\u5149\u4E4B\u65C5\u300BIGN \u8BC4\u6D4B 6 \u5206\uFF1A\u88AB\u5931\u63A7\u7684\u96BE\u5EA6\u6240\u7D2F",
             "desc": "\u89C9\u5F97\u4E00\u6B3E\u6E38\u620F\u96BE\u5EA6\u9AD8\u5230\u73A9\u4E0D\u4E0B\u53BB\uFF0C\u662F\u6211\u7684\u95EE\u9898\u8FD8\u662F\u6E38\u620F\u7684\u95EE\u9898\uFF1F\u3002",
             "author": "IGN\u4E2D\u56FD",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/20211013145922-1_pkay.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/12/30 23:12:34",
             "score": "6.0",
             "hotPoint": 42
         },
@@ -39,8 +42,9 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "title": "\u300A\u5B64\u5C9B\u60CA\u9B42 6\u300BIGN \u8BC4\u6D4B 8 \u5206\uFF1A\u8BE5\u7CFB\u5217\u8FD1\u5341\u5E74\u6765\u6700\u4F73\u4F5C\u54C1",
             "desc": "\u5185\u5BB9\u4E30\u5BCC\uFF0C\u7CBE\u5F69\u7EB7\u5448",
             "author": "IGN\u4E2D\u56FD",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_jgjt.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2020/11/09 09:12:34",
             "score": "8.0",
             "hotPoint": 198
         },
@@ -51,7 +55,7 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "desc": "\u60CA\u4EBA\u7684 VR \u666F\u81F4\uFF0C\u6B64\u5916\u522B\u65E0\u4EAE\u70B9",
             "author": "IGN\u4E2D\u56FD",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_j5u8.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/09 09:51:34",
             "score": "6.5",
             "hotPoint": 580
         },
@@ -61,8 +65,9 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "title": "\u300A\u94F6\u7FFC\u6740\u624B\uFF1A\u9ED1\u83B2\u82B1\u300B\u524D\u4E24\u96C6 IGN \u8BC4\u6D4B 6 \u5206\uFF1A\u6C14\u6C1B\u5230\u4F4D\uFF0C\u7EC6\u8282\u4E0D\u8DB3",
             "desc": "\u4EE5\u5973\u6027\u590D\u5236\u4EBA\u89C6\u89D2\u5EF6\u7EED\u5B98\u65B9\u8BBE\u5B9A\u3002",
             "author": "IGN\u4E2D\u56FD",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-19_kunw.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/02/09 01:12:34",
             "score": "6.0",
             "hotPoint": 234
         },
@@ -72,8 +77,9 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "title": "\u300A\u4FA0\u76D7\u730E\u8F66\u624B\uFF1A\u4E09\u90E8\u66F2 \u6700\u7EC8\u7248\u300B\u5373\u5C06\u63A8\u51FA\u8865\u4E01",
             "desc": "\u300C\u8FD9\u4E9B\u7ECF\u5178\u6E38\u620F\u66F4\u65B0\u7248\u63A8\u51FA\u65F6\u5E76\u6CA1\u6709\u8FBE\u5230\u6211\u4EEC\u54C1\u8D28\u7684\u6807\u51C6\u300D",
             "author": "IGN\u4E2D\u56FD",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/e8m-w6dwyaufgmc_77a5.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/09/09 09:02:34",
             "hotPoint": 554
         },
         {
@@ -81,9 +87,10 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "type": "report",
             "title": "\u300A\u8BE1\u91CE\u897F\u90E8\u300BIGN \u4E0A\u624B\u524D\u77BB\uFF1A\u671F\u76FC\u5DF2\u4E45\u7684\u9634\u6697\u795E\u79D8\u897F\u90E8\u6076\u571F",
             "desc": "\u8FD9\u4EFD\u7B49\u5F85\u503C\u5F97\u5417\uFF1F",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "author": "IGN\u4E2D\u56FD",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu-8_wckf.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/01/07 09:15:34",
             "hotPoint": 145
         },
         {
@@ -92,28 +99,33 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "title": "\u300A\u4EBA\u7C7B\uFF08HUMANKIND\uFF09\u300B\u4F53\u9A8C\u7248\u4E0A\u7EBF\u9884\u544A",
             "desc": "\u91CD\u65B0\u4E66\u5199\u4EBA\u7C7B\u7684\u6574\u4E2A\u6545\u4E8B\u3002",
             "author": "IGN\u4E2D\u56FD",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/humankindthumb-1611591485982_px7p.280.jpg",
-            "date": "2021/11/09 09:12:34",
-            "hotPoint": 89
+            "date": "2021/11/11 12:12:34",
+            "hotPoint": 89,
+            "tags": ["\u5F00\u53D1\u8005", "AD"]
         },
         {
             "id": 9,
             "type": "report",
             "title": "\u300A\u827E\u5C14\u767B\u6CD5\u73AF\u300BIGN JP \u8BD5\u73A9\u62A5\u544A\uFF1A\u300A\u9ED1\u6697\u4E4B\u9B42\u300B\u7CFB\u5217\u7684\u6B63\u7EDF\u8FDB\u5316\u4E4B\u4F5C",
             "desc": "\u5BF9\u4E8E From Software \u65B0\u4F5C\u7684\u4E00\u6B21\u5168\u65B9\u4F4D\u4F53\u9A8C",
-            "author": "IGN\u4E2D\u56FD",
+            "author": "GameSpot",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/14tou-tu_k78p.280.jpg",
-            "date": "2021/11/09 09:12:34",
-            "hotPoint": 101
+            "date": "2021/11/09 10:12:34",
+            "hotPoint": 101,
+            "tags": ["\u63A8\u8350"]
         },
         {
             "id": 10,
             "type": "report",
             "title": "\u8D81\u70ED\u6253\u94C1\u7684\u300A\u7834\u8D25\u738B\u8005\uFF1A\u82F1\u96C4\u8054\u76DF\u4F20\u5947\u300B\u80FD\u5426\u8FDB\u4E00\u6B65\u63A8\u9AD8 IP \u77E5\u540D\u5EA6\uFF1F",
             "desc": "\u300A\u82F1\u96C4\u8054\u76DF\u300B\u6765\u5230\u4E3B\u5355\u673A\u4E16\u754C",
-            "author": "IGN\u4E2D\u56FD",
+            "author": "TapTap",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/ruined-king-1920x10801-waf7_r83h.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/08 09:10:34",
             "hotPoint": 190
         },
         {
@@ -121,9 +133,10 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "type": "report",
             "title": "IGN \u72EC\u5BB6\u4E28\u300A\u5149\u73AF\uFF1A\u65E0\u9650\u300B\u6218\u5F79\u6A21\u5F0F\u4E0A\u624B\u524D\u77BB",
             "desc": "4 \u5C0F\u65F6\u8BD5\u73A9\u4E00\u626B\u6240\u6709\u62C5\u5FE7\u3002",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "author": "IGN\u4E2D\u56FD",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/halo-infinite-1630192349113_2tq3.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/08 11:12:34",
             "hotPoint": 156
         },
         {
@@ -132,22 +145,25 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "title": "\u300A\u5B9D\u53EF\u68A6 \u6676\u707F\u94BB\u77F3\uFF0F\u660E\u4EAE\u73CD\u73E0\u300B\u524D\u77BB\uFF1A\u6211\u5FC3\u5FC3\u5FF5\u5FF5\u7684\u8001\u6D3E\u300A\u5B9D\u53EF\u68A6\u300B",
             "desc": "\u60F3\u77E5\u9053\u79D8\u4F20\u62DB\u5F0F\u6539\u6210\u4EC0\u4E48\u6837\u4E86\u5417\uFF1F",
             "author": "IGN\u4E2D\u56FD",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_gdqm.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/11/07 09:12:34",
             "hotPoint": 888
         },
         {
             "id": 13,
             "type": "eval",
             "title": "\u6781\u9650\u7ADE\u901F\uFF1A\u5730\u5E73\u7EBF 5 - \u8BC4\u6D4B",
+            "userId": 1,
             "desc": "\u65B0\u610F\u4E0D\u8DB3\uFF0C\u4F46\u91CF\u5927\u7BA1\u9971",
-            "author": "IGN\u4E2D\u56FD",
+            "author": "IGN\u7F8E\u56FD",
             "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/forza-horizon-5-1628536441457_ue43.640.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/03/19 09:12:34",
             "gameId": 2,
             "postId": 0,
             "score": "9.5",
+            "views": 5091,
             "hotPoint": 580
         },
         {
@@ -157,10 +173,10 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "gameId": 2,
             "title": "\u300ALone Echo 2\u300BIGN \u8BC4\u6D4B 6 \u5206\uFF1AVR \u89C2\u5149\u529B\u4F5C",
             "desc": "\u60CA\u4EBA\u7684 VR \u666F\u81F4\uFF0C\u6B64\u5916\u522B\u65E0\u4EAE\u70B9",
-            "author": "IGN\u4E2D\u56FD",
-            "authorAvatar": "",
+            "author": "IGN\u65E5\u672C",
+            "authorAvatar": "https://www.ign.com.cn/s/ign/logo_ign.png",
             "pic": "https://www.ign.com.cn/sm/t/ign_cn/screenshot/default/tou-tu_j5u8.280.jpg",
-            "date": "2021/11/09 09:12:34",
+            "date": "2021/05/09 09:12:34",
             "hotPoint": 580
         }
     ]
@@ -252,17 +268,54 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
         {
             "id": 0,
             "gameId": 2,
+            "userId": 2,
             "username": "\u5367\u69FD\u6211\u5012\u4E86",
             "score": 8.5,
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/97/97caee00eb9e2fd9f78eaf034b7f9f4d2fd9210d.jpg",
             "content": "\u633A\u597D\u73A9\u7684",
             "thumbsUp": 1,
             "thumbsDown": 0,
-            "date": "2021/11/09 13:01"
+            "date": "2021/12/29 13:01",
+            "children":[
+                {
+                    "id": 1,
+                    "gameId": 2,
+                    "score": 8.0,
+                    "username": "HygRogen",
+                    "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/2b/2b11e47aadf6b69a87545be7ca35a00e00161580.jpg",
+                    "content": "\u6B22\u8FCE\u6765\u5230\u72B7\u91CE\u4E4B\u5730\u2014\u2014\u58A8\u897F\u54E5\u300A\u6781\u9650\u7ADE\u901F\uFF1A\u5730\u5E73\u7EBF\u300B\uFF0C\u4ECE\u7F8E\u56FD\u51FA\u53D1\uFF0C\u8D70\u8FC7\u4E86\u6CD5\u56FD\u548C\u610F\u5927\u5229",
+                    "thumbsUp": 101,
+                    "thumbsDown": 1,
+                    "date": "2021/11/09 13:01"
+                },
+                {
+                    "id": 2,
+                    "gameId": 2,
+                    "score": 7.5,
+                    "username": "\u4E00\u53EA\u53E4\u96F6",
+                    "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/36/362150cd57b9d4d15beb9c71b4e7be6e245e33f5.jpg",
+                    "content": "\u201C\u4E3A\u4EC0\u4E48\u559C\u6B22\u5730\u5E73\u7EBF\u7CFB\u5217\uFF1F\u201D \u201C\u8FD9\u662F\u4E00\u4E2A\u201C\u4E0D\u8BBE\u9650\u201D\u7684\u8D5B\u8F66\u6E38\u620F\u3002\u201D\u672C\u6765\u60F3\u9488\u5BF9\u300A\u5730\u5E73\u7EBF5\u300B\u505A\u4E00\u4E2A\u8BBE\u95EE\uFF0C\u4F46\u662F\u60F3\u4E86\u5F88\u4E45\u786E\u5B9E\u6709\u70B9\u96BE\u2014\u2014\u6BD5\u7ADF\u300A\u5730\u5E73\u7EBF5\u300B\u6709\u7684\u4F18\u70B9\u300A\u5730\u5E73\u7EBF4\u300B\u90FD\u6709\u3002",
+                    "thumbsUp": 49,
+                    "thumbsDown": 2,
+                    "date": "2021/11/09 13:01"
+                },
+                {
+                    "id": 3,
+                    "gameId": 2,
+                    "score": 6.5,
+                    "username": "\u5C0F\u5C0F\u6625",
+                    "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/c4/c43ca8764f050adc3d12425a50c2f6a4a8da837f.jpg",
+                    "content": "12\u4E2A\u5B57\u603B\u7ED3\u5730\u5E73\u7EBF5\uFF1A\u6211\u4E00\u8DEF\u5411\u5317 \u79BB\u5F00\u6709\u4F60\u7684\u5B63\u8282",
+                    "thumbsUp": 19,
+                    "thumbsDown": 0,
+                    "date": "2021/11/09 13:01"
+                }
+            ]
         },
         {
             "id": 1,
             "gameId": 2,
+            "userId": 1,
             "score": 8.0,
             "username": "HygRogen",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/2b/2b11e47aadf6b69a87545be7ca35a00e00161580.jpg",
@@ -275,81 +328,88 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "id": 2,
             "gameId": 2,
             "score": 7.5,
+            "userId": 2,
             "username": "\u4E00\u53EA\u53E4\u96F6",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/36/362150cd57b9d4d15beb9c71b4e7be6e245e33f5.jpg",
             "content": "\u201C\u4E3A\u4EC0\u4E48\u559C\u6B22\u5730\u5E73\u7EBF\u7CFB\u5217\uFF1F\u201D \u201C\u8FD9\u662F\u4E00\u4E2A\u201C\u4E0D\u8BBE\u9650\u201D\u7684\u8D5B\u8F66\u6E38\u620F\u3002\u201D\u672C\u6765\u60F3\u9488\u5BF9\u300A\u5730\u5E73\u7EBF5\u300B\u505A\u4E00\u4E2A\u8BBE\u95EE\uFF0C\u4F46\u662F\u60F3\u4E86\u5F88\u4E45\u786E\u5B9E\u6709\u70B9\u96BE\u2014\u2014\u6BD5\u7ADF\u300A\u5730\u5E73\u7EBF5\u300B\u6709\u7684\u4F18\u70B9\u300A\u5730\u5E73\u7EBF4\u300B\u90FD\u6709\u3002",
             "thumbsUp": 49,
             "thumbsDown": 2,
-            "date": "2021/11/09 13:01"
+            "date": "2021/12/09 13:01"
         },
         {
             "id": 3,
             "gameId": 2,
+            "userId": 3,
             "score": 6.5,
             "username": "\u5C0F\u5C0F\u6625",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/c4/c43ca8764f050adc3d12425a50c2f6a4a8da837f.jpg",
             "content": "12\u4E2A\u5B57\u603B\u7ED3\u5730\u5E73\u7EBF5\uFF1A\u6211\u4E00\u8DEF\u5411\u5317 \u79BB\u5F00\u6709\u4F60\u7684\u5B63\u8282",
             "thumbsUp": 19,
             "thumbsDown": 0,
-            "date": "2021/11/09 13:01"
+            "date": "2021/01/09 13:01"
         },
         {
             "id": 4,
             "gameId": 2,
             "score": 9.5,
+            "userId": 1,
             "username": "\u6211\u505A\u8F66\u624B",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/97/97caee00eb9e2fd9f78eaf034b7f9f4d2fd9210d.jpg",
             "content": "2021\u5E7411\u67083\u65E5\u6DF1\u591C12\u70B9\u300A\u6218\u57302042\u300B\u4E0E\u300A\u6781\u9650\u7ADE\u901F\uFF1A\u5730\u5E73\u7EBF5\u300B\uFF0C\u5728\u601D\u60F3\u6597\u4E89\u4E0B\uFF0C\u6700\u7EC8\u9009\u62E9\u4E86\u540E\u8005\u3002\u6211\u662F\u806A\u660E\u903C",
             "thumbsUp": 22,
             "thumbsDown": 1,
-            "date": "2021/11/09 13:01"
+            "date": "2021/12/09 13:01"
         },
         {
             "id": 5,
             "gameId": 2,
             "score": 8.0,
+            "userId": 2,
             "username": "AlexHerly",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/44/44a465e9f7ef61fa2d279fd0cc41c329a0883d10.jpg",
             "content": "\u6BCF\u4E00\u4F5C\u90FD\u652F\u6301\u3002\u7ADE\u901F\u5927\u4F5C\u7684\u5DC5\u5CF0\u4EAB\u53D7\u3002",
             "thumbsUp": 1,
             "thumbsDown": 0,
-            "date": "2021/11/09 13:01"
+            "date": "2021/06/09 13:01"
         },
         {
             "id": 6,
             "gameId": 2,
+            "userId": 2,
             "score": 3.0,
             "username": "\u57CE\u5317\u5F90\u516C",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/44/44a465e9f7ef61fa2d279fd0cc41c329a0883d10.jpg",
             "content": "\u5C3C\u739B\u7684 \u52B3\u8D44\u73A9\u4E2A\u6E38\u620F\u8FD8\u5F97\u770B\u6E38\u620F\u8138\u8272 \u95EA\u9000\u582A\u6BD4\u50BB\u903C\u602A\u730E\u7269\u8BED \u8981\u4E48\u4E0D\u95EA\u9000 \u8981\u4E48\u73A9\u4E00\u4F1A\u5C31\u95EA\u9000 \u975E\u5F97\u8DEA\u4E0B\u7ED9\u7535\u8111\u78D5\u4E09\u5934\u662F\u5427 \u50BB\u903C",
             "thumbsUp": 44,
             "thumbsDown": 20,
-            "date": "2021/11/09 13:01"
+            "date": "2021/03/09 13:01"
         },
         {
             "id": 7,
             "gameId": 2,
+            "userId": 2,
             "score": 2.5,
             "username": "\u5976\u53FD",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/e9/e93528f9920cda04fdd1c858fc7121d162445d22.jpg",
             "content": "\u5E8F\u7AE0\u4E00\u5230\u4E1B\u6797\u5C31\u95EA\u9000\uFF0C\u4F18\u5316\u771F\u5783\u573E",
             "thumbsUp": 14,
             "thumbsDown": 9,
-            "date": "2021/11/09 13:01"
+            "date": "2021/12/19 13:01"
         },
         {
             "id": 8,
             "gameId": 2,
+            "userId": 2,
             "score": 6.0,
             "username": "Qin",
             "avatar": "https://media.st.dl.pinyuncloud.com/steamcommunity/public/images/avatars/9b/9b0d4b5213c802759546e82adf1d5fa8d9d2f6a8.jpg",
             "content": "\u5982\u679C\u4F60\u60F3\u73A9\u7684\u591F\u723D\uFF0C\u9009\u5730\u5E73\u7EBF\u3002\u5982\u679C\u4F60\u60F3\u82B1\u91CC\u80E1\u54E8\uFF0C\u9009\u5730\u5E73\u7EBF\u3002\u5982\u679C\u4F60\u60F3\u6539\u88C5\u8C03\u6821\uFF0C\u9009\u5730\u5E73\u7EBF\u3002\u5982\u679C\u4F60\u60F3\u95EA\u9000\u6389\u7EBF\uFF0C\u9009\u5730\u5E73\u7EBF",
             "thumbsUp": 25,
             "thumbsDown": 1,
-            "date": "2021/11/09 13:01"
+            "date": "2021/11/29 13:01"
         }
     ]
-}`,fe=`{
+}`,_e=`{
     "data":[
         {
             "id": 0,
@@ -360,9 +420,9 @@ import{r as d,o as u,c as m,a as g,w,v as C,b as r,n as S,d as h,e as G,F as j,f
             "content": "\u60A8\u7684\u7EC8\u6781\u5730\u5E73\u7EBF\u5192\u9669\u6B63\u7B49\u7740\u60A8\u5C55\u5F00\uFF01\u63A2\u7D22\u58A8\u897F\u54E5\u5145\u6EE1\u6D3B\u529B\u4E14\u4E0D\u65AD\u53D8\u5316\u7684\u5F00\u653E\u4E16\u754C\u666F\u8272\uFF0C\u9A7E\u9A76\u767E\u8F86\u4E16\u754C\u7EA7\u597D\u8F66\uFF0C\u4EAB\u53D7\u65E0\u62D8\u65E0\u675F\u53C8\u6709\u8DA3\u7684\u9A7E\u9A76\u4F53\u9A8C\u3002\u8FD9\u662F\u60A8\u7684\u5730\u5E73\u7EBF\u5192\u9669\u5728\u58A8\u897F\u54E5\u5145\u6EE1\u6D3B\u529B\u5E76\u4E0D\u65AD\u53D8\u5316\u7684\u5F00\u653E\u4E16\u754C\u666F\u8272\u4E2D\uFF0C\u9A7E\u9A76\u767E\u8F86\u4E16\u754C\u7EA7\u597D\u8F66\uFF0C\u4EAB\u53D7\u65E0\u62D8\u65E0\u675F\u53C8\u6709\u8DA3\u7684\u9A7E\u9A76\u4F53\u9A8C\uFF0C\u5E76\u5F00\u59CB\u4EE4\u4EBA\u5C4F\u606F\u7684\u63A2\u9669\u3002\u8FD9\u662F\u591A\u5143\u5316\u7684\u5F00\u653E\u4E16\u754C\u63A2\u7D22\u666F\u8272\u53CD\u5DEE\u60AC\u6B8A\u3001\u7F8E\u4E3D\u65E0\u6BD4\u7684\u4E16\u754C\u3002\u53D1\u6398\u5145\u6EE1\u751F\u6C14\u7684\u6C99\u6F20\u3001\u8302\u5BC6\u7684\u4E1B\u6797\u3001\u5145\u6EE1\u5386\u53F2\u7684\u57CE\u5E02\u3001\u9690\u85CF\u7684\u5E9F\u589F\u3001\u539F\u59CB\u7684\u6D77\u6EE9\u3001\u5E7F\u5927\u7684\u5CE1\u8C37\u548C\u7EC8\u5E74\u79EF\u96EA\u7684\u9AD8\u8038\u706B\u5C71\u3002\u8FD9\u662F\u5145\u6EE1\u5192\u9669\u7684\u5F00\u653E\u4E16\u754C\u3002\u8BA9\u81EA\u5DF1\u6C89\u6D78\u5728\u5145\u6EE1\u767E\u79CD\u6311\u6218\u7684\u6DF1\u5EA6\u5267\u60C5\uFF0C\u5E76\u4EE5\u4ECE\u4E8B\u81EA\u5DF1\u559C\u7231\u7684\u6D3B\u52A8\u4F5C\u4E3A\u5956\u52B1\u3002\u8BA4\u8BC6\u5168\u65B0\u7684\u89D2\u8272\uFF0C\u5E76\u4E3A\u8FD9\u4E9B\u89D2\u8272\u7684\u5730\u5E73\u7EBF\u6545\u4E8B\u4EFB\u52A1\u9009\u62E9\u7ED3\u5C40\u3002\u8FD9\u662F\u4E0D\u65AD\u53D8\u5316\u7684\u5F00\u653E\u4E16\u754C\u3002\u6311\u6218\u58A8\u897F\u54E5\u72EC\u4E00\u65E0\u4E8C\u3001\u4EE4\u4EBA\u60CA\u8273\u4E0D\u5DF2\u7684\u6C14\u5019\u8D5B\u4E8B\uFF0C\u4ECE\u9AD8\u8038\u7684\u6C99\u5C18\u66B4\u5230\u5267\u70C8\u7684\u70ED\u5E26\u98CE\u66B4\u8D5B\u4E8B\uFF0C\u4E0D\u65AD\u53D8\u5316\u7684\u5B63\u8282\u6BCF\u5468\u90FD\u5C06\u6539\u53D8\u8FD9\u4E2A\u4E16\u754C\u3002\u6301\u7EED\u56DE\u6765\u6E38\u620F\uFF0C\u4EE5\u4EAB\u53D7\u5168\u65B0\u8D5B\u4E8B\u3001\u6311\u6218\u3001\u6536\u85CF\u54C1\u3001\u5956\u52B1\uFF0C\u4EE5\u53CA\u53EF\u4F9B\u63A2\u9669\u7684\u5168\u65B0\u533A\u57DF\u3002\u6BCF\u4E2A\u5B63\u8282\u90FD\u6709\u7740\u81EA\u5DF1\u72EC\u7279\u7684\u7F8E\u3002\u7ACB\u5373\u5C55\u5F00\u60A8\u7684\u5730\u5E73\u7EBF\u5192\u9669\u5427"
         }
     ]
-}`,_e=`{
+}`,fe=`{
     "data": [
         "https://syimg.3dmgame.com/uploadimg/ico/2021/0816/1629112611148632.jpg",
         "https://syimg.3dmgame.com/uploadimg/ico/2021/1110/1636506610444224.jpg"
     ]
-}`;let k=JSON.parse(me),v=JSON.parse(he),ve=JSON.parse(ge),be=JSON.parse(fe),we=JSON.parse(_e);var ye={getGameReports(t,e=0){return k.data.filter(o=>o.type=="report").slice(e,t)},getGameEvalByGame(t){return k.data.find(e=>e.gameId==t&&e.type=="eval")},getDeveloperMessage(t){return k.data.find(e=>e.gameId==t&&e.type=="devmsg")},getGameEvals(t,e=0){return k.data.filter(o=>o.type=="eval").slice(e,t)},getGameRanks(t,e=0){return v.data.sort((o,a)=>a.publicScore-o.publicScore).slice(e,t)},getGameData(t=null,e=0){return v.data.slice(e,t)},getGameDataAll(){return v.data},getGameDateById(t){return v.data.find(e=>e.id==t)},getHotGames(t){return v.data.sort((e,o)=>o.hotPoint-e.hotPoint).slice(0,t)},getAd(){return we.data},getPostContent(t){return be.data.find(e=>e.id==t)},getGameComments(t){return ve.data.filter(e=>e.gameId==t)}};const xe={data(){return{logoSrc:M,routeTable:new Map([["/index",{text:"\u9996\u9875",icon:"home"}],["/gamecenter",{text:"\u6E38\u620F\u4E2D\u5FC3",icon:"gamepad"}],["/rank",{text:"\u6392\u884C\u699C",icon:"crown"}]]),showSearch:!0,routeIndex:0}},watch:{$route(t,e){this.routeIndex=[...this.routeTable.keys()].findIndex(o=>o==t.path),t.path=="/search"?this.showSearch=!1:this.showSearch=!0}},methods:{routeTo(t,e){if(e!=null){let o=[...this.routeTable.keys()];this.$router.push(o[e])}else this.$router.push(t)},search(t){return ye.getGameData(5).filter(o=>{let a=new RegExp(`.*${t}.*`);return a.test(o.name)||a.test(o.desc)}).map(o=>o.name)}},components:{SearchBar:te,PageTabs:ie,UserPanel:ue}},ke={class:"bg-fixed bg-background min-h-full"},Ie=g("div",{style:{"min-height":"60px"},class:"bg-none"},"cemu.com",-1),je={class:"p-0 h-full w-full"};function Pe(t,e,o,a,n,s){const i=d("el-col"),c=d("el-image"),l=d("PageTabs"),_=d("SearchBar"),f=d("UserPanel"),N=d("el-row"),T=d("el-header"),D=d("router-view"),V=d("el-container");return u(),m("div",ke,[r(V,{direction:"vertical",class:"h-full"},{default:h(()=>[Ie,r(T,{height:"60px",class:"bg-primary-black text-primary-gray fixed w-full z-50"},{default:h(()=>[r(N,{gutter:0,class:"h-16",align:"middle",justify:"space-between"},{default:h(()=>[r(i,{span:3}),r(i,{span:2,offset:0},{default:h(()=>[r(c,{class:"w-12 h-12 cursor-pointer",onClick:e[0]||(e[0]=b=>s.routeTo("/index")),src:n.logoSrc},null,8,["src"])]),_:1}),r(i,{span:5,offset:0},{default:h(()=>[r(l,{class:"w-80 h-6 text-sm divide-x divide-primary-gray",onLinkto:s.routeTo,opts:[...n.routeTable.values()],modelValue:n.routeIndex,"onUpdate:modelValue":e[1]||(e[1]=b=>n.routeIndex=b),icons:["home","gamepad","crown"]},null,8,["onLinkto","opts","modelValue"])]),_:1}),r(i,{span:7,offset:0},{default:h(()=>[w(r(_,{class:"w480 h-7 text-sm bg-primary-black text-primary-gray border-primary-gray border-2 rounded-3xl",onOnSearch:e[2]||(e[2]=b=>s.routeTo(`/search?kw=${b}`)),getHints:s.search,placeholder:"\u6218\u57302042\u9996\u53D1\u53E3\u7891\u5D29\u574F \u591A\u534A\u5DEE\u8BC4",iptClass:"focus:text-white"},null,8,["getHints"]),[[G,n.showSearch]])]),_:1}),r(i,{span:3,offset:0},{default:h(()=>[r(f,{class:"bg-none w-48 h-8"})]),_:1}),r(i,{span:3})]),_:1})]),_:1}),g("div",je,[r(D)])]),_:1})])}var Se=x(xe,[["render",Pe]]);const Ge="modulepreload",E={},Le="/cemu_vue/",p=function(e,o){return!o||o.length===0?e():Promise.all(o.map(a=>{if(a=`${Le}${a}`,a in E)return;E[a]=!0;const n=a.endsWith(".css"),s=n?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${a}"]${s}`))return;const i=document.createElement("link");if(i.rel=n?"stylesheet":Ge,n||(i.as="script",i.crossOrigin=""),i.href=a,document.head.appendChild(i),n)return new Promise((c,l)=>{i.addEventListener("load",c),i.addEventListener("error",l)})})).then(()=>e())},Ee=[{path:"/",component:()=>p(()=>import("./Welcome.1e00b9dd.js"),["assets/Welcome.1e00b9dd.js","assets/Welcome.3293288b.css","assets/Index.1018f246.js","assets/Index.6650512b.css","assets/RankCardItem.00ba46ca.js","assets/RankCardItem.fed1caed.css","assets/vendor.084c55b8.js"])},{path:"/welcome",component:()=>p(()=>import("./Welcome.1e00b9dd.js"),["assets/Welcome.1e00b9dd.js","assets/Welcome.3293288b.css","assets/Index.1018f246.js","assets/Index.6650512b.css","assets/RankCardItem.00ba46ca.js","assets/RankCardItem.fed1caed.css","assets/vendor.084c55b8.js"])},{path:"/index",component:()=>p(()=>import("./Index.1018f246.js"),["assets/Index.1018f246.js","assets/Index.6650512b.css","assets/RankCardItem.00ba46ca.js","assets/RankCardItem.fed1caed.css","assets/vendor.084c55b8.js"])},{path:"/login",component:()=>p(()=>import("./Login.dd3329fc.js"),["assets/Login.dd3329fc.js","assets/slide-anim.13d7b7a7.css","assets/vendor.084c55b8.js"])},{path:"/community",component:()=>p(()=>import("./Community.62d555da.js"),[])},{path:"/postdetail",component:()=>p(()=>import("./Post.aef67870.js"),["assets/Post.aef67870.js","assets/vendor.084c55b8.js"])},{path:"/gamecenter",component:()=>p(()=>import("./GameCenter.a5254c5d.js"),["assets/GameCenter.a5254c5d.js","assets/GameCenter.f133fabd.css","assets/slide-anim.13d7b7a7.css","assets/GamesGuide.20edaf23.js","assets/AnimNum.9f02a97a.js","assets/vendor.084c55b8.js"])},{path:"/gamedetail",component:()=>p(()=>import("./GameDetail.2eec1993.js"),["assets/GameDetail.2eec1993.js","assets/GameDetail.65ca7878.css","assets/GameComment.3304b6a6.js","assets/GameComment.43ca936f.css","assets/vendor.084c55b8.js","assets/AnimNum.9f02a97a.js"])},{path:"/rank",component:()=>p(()=>import("./GameRank.8d8a845a.js"),["assets/GameRank.8d8a845a.js","assets/RankItem.88f51582.js","assets/vendor.084c55b8.js","assets/Pagination.f9273bbc.js","assets/Pagination.91b3dfc6.css"])},{path:"/search",component:()=>p(()=>import("./Search.8b0cc6d9.js"),["assets/Search.8b0cc6d9.js","assets/Search.5ec92356.css","assets/slide-anim.13d7b7a7.css","assets/Pagination.f9273bbc.js","assets/Pagination.91b3dfc6.css","assets/vendor.084c55b8.js"])},{path:"/test",component:()=>p(()=>import("./Test.8338df74.js"),["assets/Test.8338df74.js","assets/GameComment.3304b6a6.js","assets/GameComment.43ca936f.css","assets/vendor.084c55b8.js","assets/AnimNum.9f02a97a.js","assets/RankItem.88f51582.js","assets/RankCardItem.00ba46ca.js","assets/RankCardItem.fed1caed.css","assets/Pagination.f9273bbc.js","assets/Pagination.91b3dfc6.css","assets/GamesGuide.20edaf23.js"])}],Ne=O({history:$(),routes:Ee});function Te(t){t.use(U,{locale:F})}H.add(z);var De=t=>{t.component("font-awesome-icon",J)};const I=B(Se);Te(I);De(I);I.use(Ne).use(q);I.mount("#app");export{te as S,x as _,ye as a};
+}`;let I=JSON.parse(me),w=JSON.parse(he),we=JSON.parse(ge),ve=JSON.parse(_e),be=JSON.parse(fe);var ye={getGameReports(t,e=0){return I.data.filter(a=>a.type=="report").slice(e,t)},getGameEvalByGame(t){return I.data.find(e=>e.gameId==t&&e.type=="eval")},getDeveloperMessage(t){return I.data.find(e=>e.gameId==t&&e.type=="devmsg")},getGameEvals(t,e=0){return I.data.filter(a=>a.type=="eval").slice(e,t)},getGameRanks(t,e=0){return w.data.sort((a,s)=>s.publicScore-a.publicScore).slice(e,t)},getGameData(t=null,e=0){return w.data.slice(e,t)},getGameDataAll(){return w.data},getGameDateById(t){return w.data.find(e=>e.id==t)},getHotGames(t){return w.data.sort((e,a)=>a.hotPoint-e.hotPoint).slice(0,t)},getAd(){return be.data},getPostContent(t){return ve.data.find(e=>e.id==t)},getGameComments(t){return we.data.filter(e=>e.gameId==t)}};const xe={data(){return{logoSrc:M,routeTable:new Map([["/index",{text:"\u9996\u9875",icon:"home"}],["/gamecenter",{text:"\u6E38\u620F\u4E2D\u5FC3",icon:"gamepad"}],["/rank",{text:"\u6392\u884C\u699C",icon:"crown"}]]),showSearch:!0,routeIndex:0}},watch:{$route(t,e){this.routeIndex=[...this.routeTable.keys()].findIndex(a=>a==t.path),t.path=="/search"?this.showSearch=!1:this.showSearch=!0}},methods:{routeTo(t,e){if(e!=null){let a=[...this.routeTable.keys()];this.$router.push(a[e])}else this.$router.push(t)},search(t){return ye.getGameData(5).filter(a=>{let s=new RegExp(`.*${t}.*`);return s.test(a.name)||s.test(a.desc)}).map(a=>a.name)}},components:{SearchBar:te,PageTabs:ie,UserPanel:ue}},Ie={class:"bg-fixed bg-background min-h-full"},ke=g("div",{style:{"min-height":"60px"},class:"bg-none"},"cemu.com",-1),je={class:"p-0 h-full w-full"};function Pe(t,e,a,s,n,o){const i=d("el-col"),c=d("el-image"),l=d("PageTabs"),f=d("SearchBar"),_=d("UserPanel"),A=d("el-row"),D=d("el-header"),N=d("router-view"),T=d("el-container");return u(),m("div",Ie,[r(T,{direction:"vertical",class:"h-full"},{default:h(()=>[ke,r(D,{height:"60px",class:"bg-primary-black text-primary-gray fixed w-full z-50"},{default:h(()=>[r(A,{gutter:0,class:"h-16",align:"middle",justify:"space-between"},{default:h(()=>[r(i,{span:3}),r(i,{span:2,offset:0},{default:h(()=>[r(c,{class:"w-12 h-12 cursor-pointer",onClick:e[0]||(e[0]=v=>o.routeTo("/index")),src:n.logoSrc},null,8,["src"])]),_:1}),r(i,{span:5,offset:0},{default:h(()=>[r(l,{class:"w-80 h-6 text-sm divide-x divide-primary-gray",onLinkto:o.routeTo,opts:[...n.routeTable.values()],modelValue:n.routeIndex,"onUpdate:modelValue":e[1]||(e[1]=v=>n.routeIndex=v),icons:["home","gamepad","crown"]},null,8,["onLinkto","opts","modelValue"])]),_:1}),r(i,{span:7,offset:0},{default:h(()=>[b(r(f,{class:"w480 h-7 text-sm bg-primary-black text-primary-gray border-primary-gray border-2 rounded-3xl",onOnSearch:e[2]||(e[2]=v=>o.routeTo(`/search?kw=${v}`)),getHints:o.search,placeholder:"\u6218\u57302042\u9996\u53D1\u53E3\u7891\u5D29\u574F \u591A\u534A\u5DEE\u8BC4",iptClass:"focus:text-white"},null,8,["getHints"]),[[G,n.showSearch]])]),_:1}),r(i,{span:3,offset:0},{default:h(()=>[r(_,{class:"bg-none w-48 h-8"})]),_:1}),r(i,{span:3})]),_:1})]),_:1}),g("div",je,[r(N)])]),_:1})])}var Se=x(xe,[["render",Pe]]);const Ge="modulepreload",E={},Le="/cemu_vue/",p=function(e,a){return!a||a.length===0?e():Promise.all(a.map(s=>{if(s=`${Le}${s}`,s in E)return;E[s]=!0;const n=s.endsWith(".css"),o=n?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${s}"]${o}`))return;const i=document.createElement("link");if(i.rel=n?"stylesheet":Ge,n||(i.as="script",i.crossOrigin=""),i.href=s,document.head.appendChild(i),n)return new Promise((c,l)=>{i.addEventListener("load",c),i.addEventListener("error",l)})})).then(()=>e())},Ee=[{path:"/",component:()=>p(()=>import("./Welcome.2ea81535.js"),["assets/Welcome.2ea81535.js","assets/Welcome.c1072c06.css","assets/Index.7463ab9d.js","assets/Index.6fac2589.css","assets/RankCardItem.674f6037.js","assets/RankCardItem.fed1caed.css","assets/vendor.8394f990.js","assets/CardTabs.bd7eb12d.js"])},{path:"/welcome",component:()=>p(()=>import("./Welcome.2ea81535.js"),["assets/Welcome.2ea81535.js","assets/Welcome.c1072c06.css","assets/Index.7463ab9d.js","assets/Index.6fac2589.css","assets/RankCardItem.674f6037.js","assets/RankCardItem.fed1caed.css","assets/vendor.8394f990.js","assets/CardTabs.bd7eb12d.js"])},{path:"/index",component:()=>p(()=>import("./Index.7463ab9d.js"),["assets/Index.7463ab9d.js","assets/Index.6fac2589.css","assets/RankCardItem.674f6037.js","assets/RankCardItem.fed1caed.css","assets/vendor.8394f990.js","assets/CardTabs.bd7eb12d.js"])},{path:"/login",component:()=>p(()=>import("./Login.688558ba.js"),["assets/Login.688558ba.js","assets/slide-anim.13d7b7a7.css","assets/vendor.8394f990.js"])},{path:"/community",component:()=>p(()=>import("./Community.6eb6f8d0.js"),["assets/Community.6eb6f8d0.js","assets/Community.30b41276.css","assets/CardTabs.bd7eb12d.js","assets/vendor.8394f990.js","assets/Pagination.6d18fb05.js","assets/Pagination.91b3dfc6.css"])},{path:"/postdetail",component:()=>p(()=>import("./Post.56511af8.js"),["assets/Post.56511af8.js","assets/Post.d8177493.css","assets/vendor.8394f990.js","assets/Pagination.6d18fb05.js","assets/Pagination.91b3dfc6.css"])},{path:"/gamecenter",component:()=>p(()=>import("./GameCenter.0e38d5d1.js"),["assets/GameCenter.0e38d5d1.js","assets/GameCenter.f133fabd.css","assets/slide-anim.13d7b7a7.css","assets/GamesGuide.a7b44377.js","assets/GamesGuide.fbcb9e48.css","assets/AnimNum.c8235072.js","assets/vendor.8394f990.js"])},{path:"/gamedetail",component:()=>p(()=>import("./GameDetail.cc7d84a1.js"),["assets/GameDetail.cc7d84a1.js","assets/GameDetail.2242cbbb.css","assets/GameComment.40db8737.js","assets/GameComment.43ca936f.css","assets/vendor.8394f990.js","assets/AnimNum.c8235072.js"])},{path:"/rank",component:()=>p(()=>import("./GameRank.e0e36e8a.js"),["assets/GameRank.e0e36e8a.js","assets/RankItem.6e0e0fdf.js","assets/vendor.8394f990.js","assets/Pagination.6d18fb05.js","assets/Pagination.91b3dfc6.css"])},{path:"/search",component:()=>p(()=>import("./Search.9e99ba0c.js"),["assets/Search.9e99ba0c.js","assets/Search.5ec92356.css","assets/slide-anim.13d7b7a7.css","assets/Pagination.6d18fb05.js","assets/Pagination.91b3dfc6.css","assets/vendor.8394f990.js"])},{path:"/test",component:()=>p(()=>import("./Test.883e4672.js"),["assets/Test.883e4672.js","assets/GameComment.40db8737.js","assets/GameComment.43ca936f.css","assets/vendor.8394f990.js","assets/AnimNum.c8235072.js","assets/RankItem.6e0e0fdf.js","assets/RankCardItem.674f6037.js","assets/RankCardItem.fed1caed.css","assets/Pagination.6d18fb05.js","assets/Pagination.91b3dfc6.css","assets/GamesGuide.a7b44377.js","assets/GamesGuide.fbcb9e48.css"])}],Ae=O({history:U(),routes:Ee});function De(t){t.use($,{locale:F})}H.add(z);var Ne=t=>{t.component("font-awesome-icon",J)};const k=B(Se);De(k);Ne(k);k.use(Ae).use(q);k.mount("#app");export{te as S,x as _,ye as a};
