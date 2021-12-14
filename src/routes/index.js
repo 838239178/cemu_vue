@@ -15,10 +15,6 @@ const routes = [
         component: () => import('@/views/index/Index.vue'),
     },
     {
-        path: '/login',
-        component: () => import('@/views/login/Login.vue'),
-    },
-    {
         path: '/community',
         component: () => import('@/views/community/Community.vue')
     },
@@ -43,8 +39,8 @@ const routes = [
         component: () => import('@/views/search/Search.vue')
     },
     {
-        path: '/test',
-        component: () => import('@/views/Test.vue')
+        path: '/login',
+        component: () => import('@/views/Login.vue')
     }
 ];
 

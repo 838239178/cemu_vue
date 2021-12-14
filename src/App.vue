@@ -47,7 +47,7 @@
             />
           </el-col>
           <el-col :span="3" :offset="0">
-            <UserPanel class="bg-none w-48 h-8" />
+            <UserPanel v-bind="user" class="bg-none w-48 h-8" @quit-login="$store.dispatch('logout')" />
           </el-col>
           <el-col :span="3"></el-col>
         </el-row>
@@ -67,6 +67,11 @@ import UserPanel from "./components/UserPanel.vue";
 import api from './api';
 
 export default {
+  computed: {
+    user() {
+      return this.$store.state.user;
+    }
+  },
   data() {
     return {
       logoSrc: logo,
