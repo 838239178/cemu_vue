@@ -81,7 +81,6 @@
             transition-all
             duration-700
           "
-          style="min-height: 10rem"
           ref="devMsgDiv"
         >
           {{ devMsgContent.content }}

@@ -25,12 +25,12 @@
         <el-input
           type="textarea"
           :disabled="disable"
-          v-model="comment.content"
+          v-model="comment"
           class="comment-sender"
           :autosize="{ minRows: 6, maxRows: 8 }"
         />
         <div>
-          <button v-show="!disable" class="base-btn rounded-md my-3 h-fit float-right" @click="$emit('send', this.comment)">评论</button>
+          <button v-show="!disable" class="base-btn rounded-md my-3 h-fit float-right" @click="$emit('send', this.comment, this.user)">评论</button>
         </div>
       </div>
     </div>  
@@ -40,7 +40,7 @@
 export default {
   emits:['send', 'update:modelValue'],
   props: {
-    modelValue: Object,
+    modelValue: String,
     user: {
       default: ()=> {return {username: "LikeGhost", avatar: "https://avatars.githubusercontent.com/u/55338151?v=4"}}
     },
@@ -52,7 +52,12 @@ export default {
   },
   data() {
     return {
-      comment: this.modelValue || {},
+      comment: this.modelValue || "",
+    }
+  },
+  methods: {
+    clear() {
+      this.comment = "";
     }
   }
 }

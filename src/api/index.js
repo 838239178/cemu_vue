@@ -49,6 +49,10 @@ export default {
     return postContent.data.find(i=>i.id == id);
   },
   getGameComments(id) {
-    return gameComment.data.filter(i=>i.gameId == id);
+    let temp = gameComment.data.filter(i => i.gameId == id);
+    temp.forEach(element => {
+      element.children = element.children || []
+    });
+    return temp;
   }
 }
