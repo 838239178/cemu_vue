@@ -102,10 +102,13 @@ export default {
       default: () => true,
     },
   },
-  data() {
-    return {
-      rate: (this.comment.score / 2).toFixed(1),
-    };
+  computed: {
+    rate() {
+      let temp = (this.comment.score / 2).toFixed(1);
+      console.log(this.comment.score)
+      console.log(temp)
+      return temp;
+    }
   },
   methods: {
     setThumbs(state) {

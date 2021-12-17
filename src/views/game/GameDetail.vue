@@ -237,7 +237,6 @@ export default {
   methods: {
     getGame(id) {
       this.game = api.getGameDateById(id);
-      console.log(this.game);
     },
     onCarouselChange(i) {
       this.$refs["gVideo"].pause();
@@ -247,8 +246,6 @@ export default {
     },
     sendComment(comment) {
       this.commentState = true;
-      comment.score *= 2;
-      console.log(comment.score)
       this.comment = {
         ...comment,
         thumbsUp: 0,
@@ -257,6 +254,7 @@ export default {
         avatar: "https://avatars.githubusercontent.com/u/55338151?v=4",
         date: "2021/12/06"
       },
+      this.comment.score = this.comment.score * 2;
       this.newestComments.splice(0,0,this.comment)
       this.newestComments.pop();
     }

@@ -1,24 +1,22 @@
 {
-    "setting": {
-        "stylelint.config": {
-            "extends": [
-                "stylelint-config-standard"
-            ],
-            "rules": {
-                "at-rule-no-unknown": [
-                    true,
-                    {
-                        "ignoreAtRules": [
-                            "tailwind",
-                            "layer",
-                            "apply",
-                            "variants",
-                            "responsive",
-                            "screen"
-                        ]
-                    }
-                ]
-            }
+    "stylelint.config": {
+        "extends": [
+            "stylelint-config-standard"
+        ],
+        "rules": {
+            "at-rule-no-unknown": [
+                true,
+                {
+                    "ignoreAtRules": [
+                        "tailwind",
+                        "layer",
+                        "apply",
+                        "variants",
+                        "responsive",
+                        "screen"
+                    ]
+                }
+            ]
         }
     }
 }

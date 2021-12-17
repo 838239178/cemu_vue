@@ -67,8 +67,10 @@ export default {
   watch: {
     modelValue(nval) {
       this.comment = nval;
-      this.comment.score /= 2;
     }
+  },
+  mounted() {
+    this.comment.score = (this.comment.score / 2).toFixed(1)
   },
   data() {
     return {
@@ -78,7 +80,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .comment-rate {
   @apply text-left my-2;
   --el-rate-height: 38px;
